@@ -3,6 +3,8 @@ package xyz.kail.demo.spring.context.event;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.event.TransactionalEventListener;
+import xyz.kail.demo.spring.context.event.event.ConditionEvent;
 import xyz.kail.demo.spring.context.event.event.DemoEvent;
 import xyz.kail.demo.spring.context.event.event.StatusEvent;
 
@@ -21,6 +23,13 @@ public class Main {
         context.publishEvent(new StatusEvent(300, "status:" + new Date()));
         context.publishEvent(new StatusEvent(400, "status:" + new Date()));
         context.publishEvent(new StatusEvent(500, "status:" + new Date()));
+
+        // 发布 - 条件事件
+        context.publishEvent(new ConditionEvent("condition:" + new Date()));
+
+        // 针对事务的事件处理
+        final Class<TransactionalEventListener> transactionalEventListenerClass = TransactionalEventListener.class;
+
     }
 
 }
