@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>demo-spring-integration-core</module>
+        <module>demo-spring-integration-http</module>
+        <module>demo-spring-integration-example</module>
     </modules>
 
 

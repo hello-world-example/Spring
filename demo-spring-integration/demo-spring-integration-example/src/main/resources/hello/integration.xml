@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:file="http://www.springframework.org/schema/integration/file"
+       xmlns:feed="http://www.springframework.org/schema/integration/feed"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration/feed http://www.springframework.org/schema/integration/feed/spring-integration-feed.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
+
+    <!-- 【译】Spring 官方教程：数据集成: http://www.spring4all.com/article/536 -->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
+
+    <!-- 一个入站适配器用来拉取推送的消息。每个轮询一个，正如这里所配置的，它每5秒轮询一次，帖子被放置到名为“news”的通道中（与适配器的ID相对应）-->
+    <!-- auto-startup ，默认情况下是true，这意味着应用程序启动时将会提取帖子-->
+    <feed:inbound-channel-adapter id="news" url="http://feed.cnblogs.com/blog/sitehome/rss" auto-startup="${auto.startup:true}">
+        <int:poller fixed-rate="5000"/>
+    </feed:inbound-channel-adapter>
+
+    <!-- 在news通道中转换条目 (com.rometools.rome.feed.synd.SyndEntry)， -->
+    <!-- 提取条目的标题（payload.title）和链接（payload.link）并将其连接成可读字符串（添加换行符）。 然后将字符串发送到名为“file”的输出通道。 -->
+    <int:transformer
+            input-channel="news"
+            expression="payload.title + ' @ ' + payload.link + '#{systemProperties['line.separator']}'"
+            output-channel="file"/>
+
+    <!-- 出站通道适配器将通道（这里称为“file”）里的内容写入一个文件。具体来说，如在这里配置的，它将在“file”通道中的任何东西都写入/tmp/si/SpringBlog文件 -->
+    <file:outbound-channel-adapter id="file"
+                                   mode="APPEND"
+                                   charset="UTF-8"
+                                   directory="/tmp/si"
+                                   filename-generator-expression="'${feed.file.name:SpringBlog}'"/>
+
+</beans>
