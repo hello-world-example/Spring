@@ -11,14 +11,21 @@
 
     <modules>
         <module>demo-spring-core</module>
-        <module>demo-spring-integration</module>
         <module>demo-spring-context</module>
+        <module>demo-spring-jdbc</module>
+        <module>demo-spring-retry</module>
+        <module>demo-spring-integration</module>
+        <module>demo-spring-webflux</module>
     </modules>
 
 
     <properties>
         <java.version>8</java.version>
         <encoding>UTF-8</encoding>
+
+        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
+
     </properties>
 
     <dependencies>
@@ -58,7 +65,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>1.5.22.RELEASE</version>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -66,7 +73,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Edgware.RELEASE</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

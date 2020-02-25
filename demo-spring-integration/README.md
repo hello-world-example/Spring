@@ -11,5 +11,5 @@
 - [【译】Spring 官方教程：数据集成](http://www.spring4all.com/article/536)    
     
 - Spring Integration 中文手册
-    - https://my.oschina.net/yumg/blog/387701
+    - [https://my.oschina.net/yumg/blog/387701](https://my.oschina.net/yumg/blog/387701)
     - https://my.oschina.net/yumg/blog/390486
