@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Todo"><meta property="og:title" content="" />
+<meta property="og:description" content="TODO TransactionAspectSupport.completeTransactionAfterThrowing rollbackFor = Exception.class 提交后抛出 回滚后抛出
+Spring 视图传播机制的实现方式 Spring rollbackFor 的实现方式
+http://www.iteye.com/topic/35907/ https://blog.csdn.net/aya19880214/article/details/50640596 https://blog.csdn.net/seelye/article/details/40144817 https://blog.csdn.net/dapinxiaohuo/article/details/52092447 https://blog.csdn.net/dlgdlg_2008/article/details/73835487" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Spring/docs/spring-tx/todo/" />
+
+<title>Todo | Spring</title>
+<link rel="icon" href="/Spring/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Spring/book.min.5ffea21f70a71b9e6059006c33cc74cf184e208cb9897c6b24840c9f4e0e385e.css" integrity="sha256-X/6iH3CnG55gWQBsM8x0zxhOIIy5iXxrJIQMn04OOF4=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Spring"><span>Spring</span>
+  </a>
+</h2>
+
+
+
+
+
+
+  <ul>
+<li>
+<p><strong>spring-core🍃</strong></p>
+<ul>
+<li><strong>springframework.core🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
+<li><a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
+</ul>
+</li>
+<li><strong>springframework.core.io🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
+<li><a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
+<li><a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
+</ul>
+</li>
+<li><strong>springframework.util🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
+</ul>
+</li>
+<li><a href="/Spring/docs/spring-core/cglib/">cglib 🌱</a></li>
+<li><a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
+</ul>
+</li>
+<li>
+<p><strong>spring-beans🍃</strong></p>
+<ul>
+<li><a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
+<ul>
+<li><a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
+<li><a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
+<ul>
+<li><a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
+<li><a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
+<li><a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-context</strong></p>
+<ul>
+<li><strong>Handlers</strong>
+<ul>
+<li><strong>ContextNamespaceHandler</strong>
+<ul>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-aop</strong></p>
+<ul>
+<li><a href="spring-aop/core.md">概念</a></li>
+<li><a href="spring-aop/aopalliance.md">aopalliance</a></li>
+<li><strong>Spring AOP 使用方式</strong>
+<ul>
+<li><a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
+<li><a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
+<li><a href="spring-aop/usage/code-usage.md">基于编码</a></li>
+</ul>
+</li>
+<li><strong>Handlers</strong>
+<ul>
+<li><strong>AopNamespaceHandler</strong>
+<ul>
+<li><a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del>_AopProxy</del>
+<ul>
+<li><del>_DefaultAopProxyFactory</del></li>
+<li><del>_JdkDynamicAopProxy</del></li>
+<li><del>_CglibAopProxy &amp; ObjenesisCglibAopProxy</del></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-tx</strong></p>
+<ul>
+<li>PlatformTransactionManager](spring-tx/PlatformTransactionManager.md)</li>
+<li>使用方式
+<ul>
+<li>编码](spring-tx/usage-mode/code.md)</li>
+<li>注解</li>
+<li>AOP</li>
+</ul>
+</li>
+<li>TransactionInterceptor</li>
+<li>SpringTransactionAnnotationParser</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-webmvc</strong></p>
+</li>
+<li>
+<p><strong>FAQ</strong></p>
+</li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Spring/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Todo</strong>
+
+  <label for="toc-control">
+    <img src="/Spring/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"><h1 id="todo">TODO</h1>
+<p>TransactionAspectSupport.completeTransactionAfterThrowing
+rollbackFor = Exception.class
+提交后抛出
+回滚后抛出</p>
+<p>Spring 视图传播机制的实现方式
+Spring rollbackFor 的实现方式</p>
+<p><a href="http://www.iteye.com/topic/35907/">http://www.iteye.com/topic/35907/</a>
+<a href="https://blog.csdn.net/aya19880214/article/details/50640596">https://blog.csdn.net/aya19880214/article/details/50640596</a>
+<a href="https://blog.csdn.net/seelye/article/details/40144817">https://blog.csdn.net/seelye/article/details/40144817</a>
+<a href="https://blog.csdn.net/dapinxiaohuo/article/details/52092447">https://blog.csdn.net/dapinxiaohuo/article/details/52092447</a>
+<a href="https://blog.csdn.net/dlgdlg_2008/article/details/73835487">https://blog.csdn.net/dlgdlg_2008/article/details/73835487</a></p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/edit/master/HuGo/content/docs/spring-tx/todo.md" target="_blank" rel="noopener">
+      <img src="/Spring/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

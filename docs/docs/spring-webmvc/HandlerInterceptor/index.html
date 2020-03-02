@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Handler Interceptor"><meta property="og:title" content="" />
+<meta property="og:description" content="HandlerInterceptor package xyz.kail.demo.mvc.interceptor; import org.springframework.web.servlet.HandlerInterceptor; import org.springframework.web.servlet.ModelAndView; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; public class SpringMVCInterceptor implements HandlerInterceptor { /** * 该方法将在Controller处理之前进行调用，SpringMVC中的Interceptor拦截器是链式的，可以同时存在 多个Interceptor， * 然后SpringMVC会根据声明的前后顺序一个接一个的执行，而且所有的Interceptor中的preHandle方法都会在 Controller方法调用之前调用。 * SpringMVC的这种Interceptor链式结构也是可以进行中断的，这种中断方式是令preHandle的返回值为false，当preHandle的返回值为false的时候整个请求就结束了。 */ @Override public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception { return true; } /** * 在当前请求进行处理之后，也就是Controller 方法调用之后执行，但是它会在DispatcherServlet 进行视图返回渲染之前被调用， * 所以我们可以在这个方法中对Controller 处理之后的ModelAndView 对象进行操作。 * postHandle 方法被调用的方向跟preHandle 是相反的，也就是说先声明的Interceptor 的postHandle 方法反而会后执行， */ @Override public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception { } /** * 该方法将在整个请求结束之后，也就是在DispatcherServlet 渲染了对应的视图之后执行。 * 这个方法的主要作用是用于进行资源清理工作的。 */ @Override public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception { } } 拦截器生效 XML &lt;beans xmlns=&#34;http://www." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Spring/docs/spring-webmvc/HandlerInterceptor/" />
+
+<title>Handler Interceptor | Spring</title>
+<link rel="icon" href="/Spring/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Spring/book.min.5ffea21f70a71b9e6059006c33cc74cf184e208cb9897c6b24840c9f4e0e385e.css" integrity="sha256-X/6iH3CnG55gWQBsM8x0zxhOIIy5iXxrJIQMn04OOF4=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Spring"><span>Spring</span>
+  </a>
+</h2>
+
+
+
+
+
+
+  <ul>
+<li>
+<p><strong>spring-core🍃</strong></p>
+<ul>
+<li><strong>springframework.core🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
+<li><a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
+</ul>
+</li>
+<li><strong>springframework.core.io🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
+<li><a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
+<li><a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
+</ul>
+</li>
+<li><strong>springframework.util🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
+</ul>
+</li>
+<li><a href="/Spring/docs/spring-core/cglib/">cglib 🌱</a></li>
+<li><a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
+</ul>
+</li>
+<li>
+<p><strong>spring-beans🍃</strong></p>
+<ul>
+<li><a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
+<ul>
+<li><a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
+<li><a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
+<ul>
+<li><a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
+<li><a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
+<li><a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-context</strong></p>
+<ul>
+<li><strong>Handlers</strong>
+<ul>
+<li><strong>ContextNamespaceHandler</strong>
+<ul>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-aop</strong></p>
+<ul>
+<li><a href="spring-aop/core.md">概念</a></li>
+<li><a href="spring-aop/aopalliance.md">aopalliance</a></li>
+<li><strong>Spring AOP 使用方式</strong>
+<ul>
+<li><a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
+<li><a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
+<li><a href="spring-aop/usage/code-usage.md">基于编码</a></li>
+</ul>
+</li>
+<li><strong>Handlers</strong>
+<ul>
+<li><strong>AopNamespaceHandler</strong>
+<ul>
+<li><a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del>_AopProxy</del>
+<ul>
+<li><del>_DefaultAopProxyFactory</del></li>
+<li><del>_JdkDynamicAopProxy</del></li>
+<li><del>_CglibAopProxy &amp; ObjenesisCglibAopProxy</del></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-tx</strong></p>
+<ul>
+<li>PlatformTransactionManager](spring-tx/PlatformTransactionManager.md)</li>
+<li>使用方式
+<ul>
+<li>编码](spring-tx/usage-mode/code.md)</li>
+<li>注解</li>
+<li>AOP</li>
+</ul>
+</li>
+<li>TransactionInterceptor</li>
+<li>SpringTransactionAnnotationParser</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-webmvc</strong></p>
+</li>
+<li>
+<p><strong>FAQ</strong></p>
+</li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Spring/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Handler Interceptor</strong>
+
+  <label for="toc-control">
+    <img src="/Spring/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#拦截器生效">拦截器生效</a>
+      <ul>
+        <li><a href="#xml">XML</a></li>
+        <li><a href="#bean-config">Bean Config</a></li>
+      </ul>
+    </li>
+    <li><a href="#read-more">Read More</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"><h1 id="handlerinterceptor">HandlerInterceptor</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> xyz.kail.demo.mvc.interceptor<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.web.servlet.HandlerInterceptor<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.servlet.ModelAndView<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> javax.servlet.http.HttpServletRequest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.servlet.http.HttpServletResponse<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringMVCInterceptor</span> <span style="color:#66d9ef">implements</span> HandlerInterceptor <span style="color:#f92672">{</span>
+    
+      <span style="color:#75715e">/** 
+</span><span style="color:#75715e">       * 该方法将在Controller处理之前进行调用，SpringMVC中的Interceptor拦截器是链式的，可以同时存在 多个Interceptor，
+</span><span style="color:#75715e">       * 然后SpringMVC会根据声明的前后顺序一个接一个的执行，而且所有的Interceptor中的preHandle方法都会在 Controller方法调用之前调用。
+</span><span style="color:#75715e">       * SpringMVC的这种Interceptor链式结构也是可以进行中断的，这种中断方式是令preHandle的返回值为false，当preHandle的返回值为false的时候整个请求就结束了。 
+</span><span style="color:#75715e">       */</span>  
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">preHandle</span><span style="color:#f92672">(</span>HttpServletRequest httpServletRequest<span style="color:#f92672">,</span> HttpServletResponse httpServletResponse<span style="color:#f92672">,</span> Object o<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 在当前请求进行处理之后，也就是Controller 方法调用之后执行，但是它会在DispatcherServlet 进行视图返回渲染之前被调用，
+</span><span style="color:#75715e">     * 所以我们可以在这个方法中对Controller 处理之后的ModelAndView 对象进行操作。
+</span><span style="color:#75715e">     * postHandle 方法被调用的方向跟preHandle 是相反的，也就是说先声明的Interceptor 的postHandle 方法反而会后执行，
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">postHandle</span><span style="color:#f92672">(</span>HttpServletRequest httpServletRequest<span style="color:#f92672">,</span> HttpServletResponse httpServletResponse<span style="color:#f92672">,</span> Object o<span style="color:#f92672">,</span> ModelAndView modelAndView<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 该方法将在整个请求结束之后，也就是在DispatcherServlet 渲染了对应的视图之后执行。
+</span><span style="color:#75715e">     * 这个方法的主要作用是用于进行资源清理工作的。
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterCompletion</span><span style="color:#f92672">(</span>HttpServletRequest httpServletRequest<span style="color:#f92672">,</span> HttpServletResponse httpServletResponse<span style="color:#f92672">,</span> Object o<span style="color:#f92672">,</span> Exception e<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h2 id="拦截器生效">拦截器生效</h2>
+<h3 id="xml">XML</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>  
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> 
+    <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>  
+    <span style="color:#a6e22e">xmlns:mvc=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/mvc&#34;</span>  
+    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans  
+</span><span style="color:#e6db74">                        http://www.springframework.org/schema/beans/spring-beans.xsd  
+</span><span style="color:#e6db74">                        http://www.springframework.org/schema/context  
+</span><span style="color:#e6db74">                        http://www.springframework.org/schema/context/spring-context.xsd  
+</span><span style="color:#e6db74">                        http://www.springframework.org/schema/mvc  
+</span><span style="color:#e6db74">                        http://www.springframework.org/schema/mvc/spring-mvc.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+     
+    <span style="color:#f92672">&lt;mvc:interceptors&gt;</span>
+        <span style="color:#75715e">&lt;!-- 直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 --&gt;</span>  
+        <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;xyz.kail.demo.mvc.interceptor.AllInterceptor&#34;</span><span style="color:#f92672">/&gt;</span>  
+        
+        <span style="color:#f92672">&lt;mvc:interceptor&gt;</span>  
+            <span style="color:#75715e">&lt;!-- 拦截login 开头的请求 --&gt;</span>
+            <span style="color:#f92672">&lt;mvc:mapping</span> <span style="color:#a6e22e">path=</span><span style="color:#e6db74">&#34;/login/**&#34;</span><span style="color:#f92672">/&gt;</span>  
+            <span style="color:#75715e">&lt;!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 --&gt;</span>  
+            <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;xyz.kail.demo.mvc.interceptor.SpringMVCInterceptor&#34;</span><span style="color:#f92672">/&gt;</span>  
+        <span style="color:#f92672">&lt;/mvc:interceptor&gt;</span>  
+    <span style="color:#f92672">&lt;/mvc:interceptors&gt;</span>  
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h3 id="bean-config">Bean Config</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.stereotype.Component<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.servlet.config.annotation.InterceptorRegistry<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Component</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AllInterceptor</span> <span style="color:#66d9ef">extends</span> WebMvcConfigurerAdapter <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addInterceptors</span><span style="color:#f92672">(</span>InterceptorRegistry registry<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// 拦截所有
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 排除 /login/**
+</span><span style="color:#75715e"></span>        registry<span style="color:#f92672">.</span><span style="color:#a6e22e">addInterceptor</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> SpringInterceptorAll<span style="color:#f92672">()).</span><span style="color:#a6e22e">addPathPatterns</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/**&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">excludePathPatterns</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login/**&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>   
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/hy928302776/articles/6956747.html">Spring中使用Interceptor拦截器</a></li>
+</ul>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/edit/master/HuGo/content/docs/spring-webmvc/HandlerInterceptor.md" target="_blank" rel="noopener">
+      <img src="/Spring/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#拦截器生效">拦截器生效</a>
+      <ul>
+        <li><a href="#xml">XML</a></li>
+        <li><a href="#bean-config">Bean Config</a></li>
+      </ul>
+    </li>
+    <li><a href="#read-more">Read More</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

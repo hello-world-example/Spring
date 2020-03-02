@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aware"><meta property="og:title" content="" />
+<meta property="og:description" content="beans.factory.Aware /** * A marker superinterface indicating that a bean is eligible to be notified by the * Spring container of a particular framework object through a callback-style method. * The actual method signature is determined by individual subinterfaces but should * typically consist of just one void-returning method that accepts a single argument. * * @link org.springframework.beans.factory.config.BeanPostProcessor * @link org.springframework.context.support.ApplicationContextAwareProcessor * @since 3.1 */ public interface Aware { } context." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Spring/docs/spring-beans/Aware/" />
+
+<title>Aware | Spring</title>
+<link rel="icon" href="/Spring/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Spring/book.min.5ffea21f70a71b9e6059006c33cc74cf184e208cb9897c6b24840c9f4e0e385e.css" integrity="sha256-X/6iH3CnG55gWQBsM8x0zxhOIIy5iXxrJIQMn04OOF4=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Spring"><span>Spring</span>
+  </a>
+</h2>
+
+
+
+
+
+
+  <ul>
+<li>
+<p><strong>spring-core🍃</strong></p>
+<ul>
+<li><strong>springframework.core🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
+<li><a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
+</ul>
+</li>
+<li><strong>springframework.core.io🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
+<li><a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
+<li><a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
+</ul>
+</li>
+<li><strong>springframework.util🌱</strong>
+<ul>
+<li><a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
+</ul>
+</li>
+<li><a href="/Spring/docs/spring-core/cglib/">cglib 🌱</a></li>
+<li><a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
+</ul>
+</li>
+<li>
+<p><strong>spring-beans🍃</strong></p>
+<ul>
+<li><a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
+<ul>
+<li><a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
+<li><a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
+<li><a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
+<ul>
+<li><a href="/Spring/docs/spring-beans/Aware/"class=active>Aware</a></li>
+<li><a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
+<li><a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-context</strong></p>
+<ul>
+<li><strong>Handlers</strong>
+<ul>
+<li><strong>ContextNamespaceHandler</strong>
+<ul>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
+<li><a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-aop</strong></p>
+<ul>
+<li><a href="spring-aop/core.md">概念</a></li>
+<li><a href="spring-aop/aopalliance.md">aopalliance</a></li>
+<li><strong>Spring AOP 使用方式</strong>
+<ul>
+<li><a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
+<li><a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
+<li><a href="spring-aop/usage/code-usage.md">基于编码</a></li>
+</ul>
+</li>
+<li><strong>Handlers</strong>
+<ul>
+<li><strong>AopNamespaceHandler</strong>
+<ul>
+<li><a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del>_AopProxy</del>
+<ul>
+<li><del>_DefaultAopProxyFactory</del></li>
+<li><del>_JdkDynamicAopProxy</del></li>
+<li><del>_CglibAopProxy &amp; ObjenesisCglibAopProxy</del></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-tx</strong></p>
+<ul>
+<li>PlatformTransactionManager](spring-tx/PlatformTransactionManager.md)</li>
+<li>使用方式
+<ul>
+<li>编码](spring-tx/usage-mode/code.md)</li>
+<li>注解</li>
+<li>AOP</li>
+</ul>
+</li>
+<li>TransactionInterceptor</li>
+<li>SpringTransactionAnnotationParser</li>
+</ul>
+</li>
+<li>
+<p><strong>spring-webmvc</strong></p>
+</li>
+<li>
+<p><strong>FAQ</strong></p>
+</li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Spring/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Aware</strong>
+
+  <label for="toc-control">
+    <img src="/Spring/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#contextsupportapplicationcontextawareprocessor">context.support.ApplicationContextAwareProcessor</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"><h1 id="beansfactoryaware">beans.factory.Aware</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e">  * A marker superinterface indicating that a bean is eligible to be notified by the
+</span><span style="color:#75715e">  * Spring container of a particular framework object through a callback-style method.
+</span><span style="color:#75715e">  * The actual method signature is determined by individual subinterfaces but should
+</span><span style="color:#75715e">  * typically consist of just one void-returning method that accepts a single argument.
+</span><span style="color:#75715e">  *
+</span><span style="color:#75715e">  * @link org.springframework.beans.factory.config.BeanPostProcessor
+</span><span style="color:#75715e">  *  @link org.springframework.context.support.ApplicationContextAwareProcessor
+</span><span style="color:#75715e">  * @since 3.1
+</span><span style="color:#75715e">  */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Aware</span> <span style="color:#f92672">{</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="contextsupportapplicationcontextawareprocessor">context.support.ApplicationContextAwareProcessor</h2>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/edit/master/HuGo/content/docs/spring-beans/Aware.md" target="_blank" rel="noopener">
+      <img src="/Spring/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#contextsupportapplicationcontextawareprocessor">context.support.ApplicationContextAwareProcessor</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

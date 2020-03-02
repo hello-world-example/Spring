@@ -16,6 +16,7 @@
         <module>demo-spring-retry</module>
         <module>demo-spring-integration</module>
         <module>demo-spring-webflux</module>
+        <module>demo-spring-beans</module>
     </modules>
 
 

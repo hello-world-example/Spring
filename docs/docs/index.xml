@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Spring</title>
+    <link>https://hello-world-example.github.io/Spring/docs/</link>
+    <description>Recent content in Docs on Spring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Spring/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-aop/aopalliance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-aop/aopalliance/</guid>
+      <description>aopalliance &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;aopalliance&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aopalliance&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 这个包是 AOP联盟 的API包，里面包含了针对面向切面的接口。
+目前 Spring 已把改包 纳入到了 spring-aop 模块里面，所以无需依赖。
+包结构  org.aopalliance  aop  Advice： 空接口，标识 接口 是 一个 advice 接口（通知、增强，如：前置通知、后置增强&amp;hellip; 直译过来是通知，按照代理的意思是增强） AspectException   intercept   Interceptor ： 空接口，标识 接口 是 一个 通用的拦截器。拦截器可以拦截运行时程序中的事件(方法调用、字段访问、异常&amp;hellip;) ，事件的具体操作由 Joinpoint 实现
+  ConstructorInterceptor：构造器 拦截器
+  MethodInterceptor：方法 拦截器
+  Joinpoint：代码的执行，方法的执行，构造器的执行等，代表被切入的位置。功能：调用被切入对象、获取被切入对象、获取被调用对象（方法、构造器、字段..）
+  Invocation：代表程序的调用，功能：获取调用参数
+  ConstructorInvocation：构造器的调用，功能：获取 Constructor 构造器对象
+  MethodInvocation：方法的调用：获取 Method 对象
+      继承结构  Advice org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-aop/core/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-aop/core/</guid>
+      <description>Spring AOP 核心概念 术语  切面（Aspect）：可理解为AOP切入的单元 连接点（Joinpoint）：表示一个方法的执行，常作为 通知（Advice） 方法的参数 切入点（Pointcut）：匹配连接点的语法 通知（Advice）：在切面的某个特定的连接点上执行的动作  前置通知：连接点之前执行，@Before 后置通知：连接点正常完成后执行，@AfterReturning 异常通知：抛出异常时执行，@AfterThrowing 最终通知：当某连接点退出的时候执行的通知，After，不论是正常返回还是异常退出 环绕通知：以上四种通知都可以通过环绕通知实现，@Around。但是，用最合适的通知类型可以使得编程模型变得简单，并且能够避免很多潜在的错误，这是其他类型通知存在的价值。   Advisor：用于把 Advice 和 Pointcut 进行绑定，就像是只有一个通知的切面。在AspectJ中没有等价的概念 引入（Introduction）：用来给一个类型声明额外的方法或属性 目标对象（Target Object）： 被代理对象、被切入对象 织入（Weaving）：把切面连接到其它的应用程序类型或者对象上，并创建一个被通知的对象。这些可以在编译时、类加载时、运行时完成。Spring在运行时完成织入 AspectJ：AOP 的一种实现方式，可采用 编译时 或 类加载时的代码织入（Spring AOP 则使用 运行时织入）。控制力度 比 Spring AOP 更细，可对私有方法、变量等进行控制。Spring 可无缝集成 AspectJ。  Spring AOP 如何选择 JDK 或 cglib 代理? 具体逻辑如下：
+public class DefaultAopProxyFactory implements AopProxyFactory, Serializable { @Override public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException { /* * optimize 被设置为 true * || proxyTargetClass 被设置为 true，&amp;lt;aop:aspectj-autoproxy proxy-target-class=&amp;#34;true&amp;#34;/&amp;gt; * || 目标类 没有接口 或 接口是org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-aop/handlers/AopNamespaceHandler/spring-configured/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-aop/handlers/AopNamespaceHandler/spring-configured/</guid>
+      <description>&amp;lt;aop: spring-configured/&amp;gt; 当我们使用 Spring 容器的时候，一般是从 Spring 容器中获取 Bean，Spring 会自动进行 依赖注入。
+&amp;lt;aop:spring-configured/&amp;gt; 的作用是，提供了能为任何对象进行依赖注入的能力，场景是在脱离容器管理而创建的对象时进行依赖注入，如：
+ 脱离Spring 容器进行 事务管理 其他&amp;hellip; 详见 spring-aspects.xxx.jar:/META-INF/aop.xml 中的支持  原理是 AspectJ 的 编译期 或 类加载时 织入，new 对象前已经在 class字节码中 织入了相关代码。
+所以需要 AspectJ 提供的 ajc 编译器进行编译（也可通过 Maven 插件进行编译），也可 通过 LTW 机制进行使用。
+AspectJ Maven 插件进行编译（编译期织入） 官方：http://www.mojohaus.org/aspectj-maven-plugin/index.html
+示例：
+&amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.codehaus.mojo&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aspectj-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.11&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;outxmlfile&amp;gt;META-INF/aop.xml&amp;lt;/outxmlfile&amp;gt; &amp;lt;aspectLibraries&amp;gt; &amp;lt;aspectLibrary&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-aspects&amp;lt;/artifactId&amp;gt; &amp;lt;/aspectLibrary&amp;gt; &amp;lt;/aspectLibraries&amp;gt; &amp;lt;complianceLevel&amp;gt;1.8&amp;lt;/complianceLevel&amp;gt; &amp;lt;source&amp;gt;1.8&amp;lt;/source&amp;gt; &amp;lt;target&amp;gt;1.8&amp;lt;/target&amp;gt; &amp;lt;forceAjcCompile&amp;gt;true&amp;lt;/forceAjcCompile&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;compile&amp;lt;/goal&amp;gt; &amp;lt;goal&amp;gt;test-compile&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-aop/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-aop/README/</guid>
+      <description>AOP Aspect Oriented Programming 面向切面编程</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/annotation-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/annotation-usage/</guid>
+      <description>基于注解进行 AOP 编程 打开开关  &amp;lt;aop:aspectj-autoproxy/&amp;gt; 或 &amp;lt;bean class=&amp;quot;org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator&amp;quot; /&amp;gt; 或 @EnableAspectJAutoProxy  编写切面 package xyz.kail.demo; import org.aspectj.lang.ProceedingJoinPoint; import org.aspectj.lang.annotation.*; import org.springframework.stereotype.Component; @Aspect @Component public class HelloAspectj { /** * 所有的 say 方法 */ @Pointcut(&amp;#34;execution( * say(..) )&amp;#34;)// 切入点表达式  public void sayMethod() { // 切入点签名，返回类型必须是 void  // 切入点代表一些列位置，没有具体执行逻辑  } /** * 所有的带有 @Transactional 或者 方法名是 say 的方法 */ @Pointcut(&amp;#34;sayMethod() || @annotation(org.springframework.transaction.annotation.Transactional)&amp;#34;) public void tx() { } /** * 前置通知 */ @Before(&amp;#34;tx()&amp;#34;) public void before() { System.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/code-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/code-usage/</guid>
+      <description>基于代码进行 AOP 编程 基于代码进行 AOP 编程是 基于AspectJ注解 和 基于 Schema 的底层实现。
+ProxyFactory 硬编码 ProxyFactory 可以脱离 Spring 容器创建代理，根据目标类是否实现接口 或 相关设置 来返回 cglib 或 JDK 代理类。具体逻辑可查看 DefaultAopProxyFactory 类。
+ProxyFactory proxyFactory = new ProxyFactory(); // 设置目标类 proxyFactory.setTarget(new Hello()); // 设置通知 proxyFactory.addAdvice(new HelloAdvice()); Hello hello = (Hello) proxyFactory.getProxy(); ProxyFactoryBean ProxyFactoryBean 是一个 FactoryBean， 最佳使用场景是与 Spring 容器结合，与 ProxyFactory 的区别是 ProxyFactoryBean 实现了 Spring 生命周期的一些接口：BeanClassLoaderAware、BeanFactoryAware，可以从 Spring 容器中获取 Advice。
+下面也是一个硬编码的示例，每次只能代理一个目标类
+&amp;lt;bean id=&amp;#34;helloTarget&amp;#34; class=&amp;#34;xyz.kail.demo.Hello&amp;#34;/&amp;gt; &amp;lt;bean id=&amp;#34;helloAdvice&amp;#34; class=&amp;#34;xyz.kail.demo.HelloAdvice&amp;#34;/&amp;gt; &amp;lt;bean id=&amp;#34;person&amp;#34; class=&amp;#34;org.springframework.aop.framework.ProxyFactoryBean&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;target&amp;#34; ref=&amp;#34;helloTarget&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;interceptorNames&amp;#34;&amp;gt; &amp;lt;list&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/schema-xml-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/schema-xml-usage/</guid>
+      <description>基于 schema 进行 AOP 编程 定义切面 package xyz.kail.demo; import org.aspectj.lang.ProceedingJoinPoint; public class HelloAspectj { /** * 前置通知 */ public void before() { System.out.println(&amp;#34;before() 有个事务&amp;#34;); } /** * 环绕通知 */ private Object around(ProceedingJoinPoint pjp) throws Throwable { try { System.out.println(&amp;#34;around() 开始事务&amp;#34;); Object result = pjp.proceed(pjp.getArgs()); System.out.println(&amp;#34;around() 提交事务&amp;#34;); return result; } catch (Throwable ex) { System.out.println(&amp;#34;around() 回滚事务&amp;#34;); throw ex; } finally { System.out.println(&amp;#34;around() 释放资源&amp;#34;); } } /** * 后置通知 */ public void afterReturning(Long result) { System.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/___AnnotatedBeanDefinition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/___AnnotatedBeanDefinition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/___BeanDefinition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/___BeanDefinition/</guid>
+      <description>BeanDefinition  BeanDefinition  AnnotatedBeanDefinition  ScannedGenericBeanDefinition == AnnotatedGenericBeanDefinition ==   AbstractBeanDefinition  RootBeanDefinition ChildBeanDefinition GenericBeanDefinition  ScannedGenericBeanDefinition == AnnotatedGenericBeanDefinition ==        </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/___DefaultSingletonBeanRegistry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/___DefaultSingletonBeanRegistry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/Aware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/Aware/</guid>
+      <description>beans.factory.Aware /** * A marker superinterface indicating that a bean is eligible to be notified by the * Spring container of a particular framework object through a callback-style method. * The actual method signature is determined by individual subinterfaces but should * typically consist of just one void-returning method that accepts a single argument. * * @link org.springframework.beans.factory.config.BeanPostProcessor * @link org.springframework.context.support.ApplicationContextAwareProcessor * @since 3.1 */ public interface Aware { } context.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactory.getBean/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactory.getBean/</guid>
+      <description>BeanFactory#getBean 继承关系 Interface  BeanFactory (org.springframework.beans.factory)  HierarchicalBeanFactory (org.springframework.beans.factory)  ConfigurableBeanFactory (org.springframework.beans.factory.config)  AbstractBeanFactory (org.springframework.beans.factory.support)        Class  SimpleAliasRegistry (org.springframework.core)  DefaultSingletonBeanRegistry (org.springframework.beans.factory.support)  FactoryBeanRegistrySupport (org.springframework.beans.factory.support)  AbstractBeanFactory (org.springframework.beans.factory.support)  AbstractAutowireCapableBeanFactory (org.springframework.beans.factory.support)  DefaultListableBeanFactory (org.springframework.beans.factory.support)  XmlBeanFactory (org.springframework.beans.factory.xml)              getBean 的大部分逻辑由 AbstractBeanFactory 实现，大多 getBean 方式都是 doGetBean 的重载方法。
+AbstractBeanFactory#doGetBean protected &amp;lt;T&amp;gt; T doGetBean(final String name, @Nullable final Class&amp;lt;T&amp;gt; requiredType, @Nullable final Object[] args, boolean typeCheckOnly ) throws BeansException { // 1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactory/</guid>
+      <description>BeanFactory BeanFactory 是个 工厂，也就是 IOC 容器 或 对象工厂 ，所有的 Bean 都是由 BeanFactory( 也就是 IOC 容器 ) 来进行管理。
+BeanFactory定义了 IOC 容器的最基本形式，并提供了 IOC 容器应遵守的的最基本的接口，也就是 Spring IOC 所遵守的最底层和最基本的编程规范。
+public interface BeanFactory { // FactoryBean前缀  String FACTORY_BEAN_PREFIX = &amp;#34;&amp;amp;&amp;#34;; // 根据名称获取Bean对象  Object getBean(String name) throws BeansException; // 根据名称、类型获取Bean对象  &amp;lt;T&amp;gt; T getBean(String name, Class&amp;lt;T&amp;gt; requiredType) throws BeansException; // 根据类型获取Bean对象  &amp;lt;T&amp;gt; T getBean(Class&amp;lt;T&amp;gt; requiredType) throws BeansException; // 根据名称获取Bean对象,带参数  Object getBean(String name, Object.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactoryPostProcessor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactoryPostProcessor/</guid>
+      <description>BeanFactoryPostProcessor 在实例化所有Bean之前会执行 BeanFactoryPostProcessors，实现该接口，可以在 Spring 的 Bean 创建之前，修改 Bean的定义属性 等 // TODO “还有什么功能”
+package org.springframework.beans.factory.config; import org.springframework.beans.BeansException; /** * Allows for custom modification of an application context&amp;#39;s bean definitions, * adapting the bean property values of the context&amp;#39;s underlying bean factory. * * &amp;lt;p&amp;gt;Application contexts can auto-detect BeanFactoryPostProcessor beans in * their bean definitions and apply them before any other beans get created. * * &amp;lt;p&amp;gt;Useful for custom config files targeted at system administrators that * override bean properties configured in the application context.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanPostProcessor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanPostProcessor/</guid>
+      <description>BeanPostProcessor BeanPostProcessor 提供对bean实例的操作扩展，在 Spring容器 对 bean实例化 和 设置依赖 之后，其回调开始执行。BeanPostProcessor 接口定义的两个方法，分别在 bean的初始化方法执行的前后执行（ InitializingBean 接口，或者 init-method 定义的方法）：
+package org.springframework.beans.factory.config; import org.springframework.beans.BeansException; /** * 用来自定义创建的 Bean，如：检查 Bean 的注解 或 用代理类进行包装 等 * * postProcessBeforeInitialization 一般用来检查bean的注解 或者 填充 bean * postProcessAfterInitialization 一般用来代理类来包装 bean * * @see InstantiationAwareBeanPostProcessor * @see DestructionAwareBeanPostProcessor * @see ConfigurableBeanFactory#addBeanPostProcessor * @see BeanFactoryPostProcessor */ public interface BeanPostProcessor { /** * 在bean的初始化方法执行 前 执行 * * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet */ Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException; /** * 在bean的初始化方法执行 后 执行 * * @see org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/DisposableBean/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/DisposableBean/</guid>
+      <description>DisposableBean // TODO 定义在 spring 容器 销毁前 所做的操作方式 常见有三种：
+ @PreDestroy 注解 在 xml 中 bean 标签 配置 destory-method 属性 指定销毁方法 Bean 实现 DisposableBean 接口  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/FactoryBean/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/FactoryBean/</guid>
+      <description>FactoryBean FactoryBean 是一个 Bean，但不是一个简单的Bean，是一个能生产对象的 Bean 😓
+接口如下：
+package org.springframework.beans.factory; public interface FactoryBean&amp;lt;T&amp;gt; { // FactoryBean 创建的 Bean 实例  T getObject() throws Exception; // 返回 FactoryBean 创建的 Bean 类型  Class&amp;lt;?&amp;gt; getObjectType(); // 返回由 FactoryBean 创建的 Bean 实例的作用域是 singleton 还是 prototype  boolean isSingleton(); } 使用示例 User.java package xyz.kail.blog.spring; public class User { public String name; } UserFactoryBean.java package xyz.kail.blog.spring; import org.springframework.beans.factory.FactoryBean; import org.springframework.stereotype.Component; @Component(&amp;#34;user&amp;#34;) public class UserFactoryBean implements FactoryBean&amp;lt;User&amp;gt; { @Override public User getObject() throws Exception { User user = new User(); user.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/InitializingBean/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/InitializingBean/</guid>
+      <description>InitializingBean // TODO 定义在 spring Bean 初始化后 所做的操作方式 常见有三种：
+ @PostConstruct 注解 Bean 实现 InitializingBean 接口 在 xml 中 bean 标签 配置 init-method 属性 指定初始化方法  package org.springframework.beans.factory; /** * Interface to be implemented by beans that need to react once all their * properties have been set by a BeanFactory: for example, to perform custom * initialization, or merely to check that all mandatory properties have been set. * * &amp;lt;p&amp;gt;An alternative to implementing InitializingBean is specifying a custom * init-method, for example in an XML bean definition.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/Lifecycle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/Lifecycle/</guid>
+      <description>Bean 的生命周期  译自 —— Spring Bean Life Cycle
+ Bean 的生命周期是 Spring 最重要的特性之一。
+在许多应用中，必须在初始化bean之前执行一些操作，并且在容器销毁 bean 之前执行一些清理操作。
+在 Java 中 对象的生命周期 由 new 关键字开始。当我们使用 new 创建一个对象时，它会根据类的层析结构调用一系列的构造函数，最后使对象可用。当这个对象没有任何引用时，它将被垃圾收集。 这是Java中对象的生命周期。
+但在 Spring 中 Bean 的生命周期还有很多事情要做。下面展示的是 Spring Bean 的生命周期图：
+ Spring容器在 xml配置文件中(注解扫描、配置Bean 等) 查找bean的定义 通过调用 Class 的默认 无参数构造函数 来实例化 Bean；如果类中只有参数化构造函数，则必须在使用构造函数注入定义bean，否则将抛出bean创建异常。 Spring 将 值 或者 引用 注入到 Bean 的实例中 如果 Bean 实现 BeanNameAware 接口，Spring 会将 bean的ID 传递给 setBeanName() 方法并执行此方法。 如果 Bean 实现 BeanFactoryAware 接口，Spring 将会调用 setBeanFactory() 方法，传入 Bean 工厂 BeanFactory 的实例 如果 Bean 实现 ApplicationContextAware  接口，Spring 将会调用 setApplicationContext() 方法，创建当前应用上下问的引用 ApplicationContext 如果 Bean 实现 BeanPostProcessor 接口，Spring 将会调用 postProcessBeforeInitialization() 方法；@PostConstruct 注解的方法也会在这一步执行 如果 Bean 实现 InitializingBean 接口，Spring 将会 在设置完 Bean 的所有属性后 调用 afterPropertiesSet() 方法；类似地，如果使用 init-method 方法声明bean，则将调用指定的初始化方法 如果 Bean 实现 BeanPostProcessor 接口，Spring 将会调用 postProcessAfterInitialization() 方法， 此时，bean已准备好由应用程序使用，并将保留在应用程序上下文中，直到销毁应用程序上下文。 如果 Bean 实现 DisposableBean 接口，Spring 将会在容器销毁的时候 调用 destroy() 方法；同样，如果使用 destroy-method 声明任何bean，则将调用指定的方法。  生命周期之前  容器启动时最先调用 org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s01.BeanNameAware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s01.BeanNameAware/</guid>
+      <description>BeanNameAware 作用是 让Bean获取自己在BeanFactory中的 ID/Name。
+Spring 会在完成 Bean 属性设置之后自动调用 setBeanName() 方法，且在调用 Bean 生命周期回调方法之前就调用这个方法。
+package org.springframework.beans.factory; /** * @see BeanClassLoaderAware * @see BeanFactoryAware * @see InitializingBean */ public interface BeanNameAware extends Aware { void setBeanName(String name); } 常见的实现：
+@Override public void setBeanName(String beanName) { this.beanName = StringUtils.trimAllWhitespace(BeanFactoryUtils.originalBeanName(beanName)); } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s02.BeanFactoryAware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s02.BeanFactoryAware/</guid>
+      <description>BeanFactoryAware // TODO 作用是 让Bean获取配置它们的BeanFactory的引用
+// TODO
+package org.springframework.beans.factory; import org.springframework.beans.BeansException; /** * Interface to be implemented by beans that wish to be aware of their * owning {@link BeanFactory}. * * &amp;lt;p&amp;gt;For example, beans can look up collaborating beans via the factory * (Dependency Lookup). Note that most beans will choose to receive references * to collaborating beans via corresponding bean properties or constructor * arguments (Dependency Injection). * * &amp;lt;p&amp;gt;For a list of all bean lifecycle methods, see the * {@link BeanFactory BeanFactory javadocs}.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s03.ApplicationContextAware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s03.ApplicationContextAware/</guid>
+      <description>// TODO</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-beans/StaticListableBeanFactory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/StaticListableBeanFactory/</guid>
+      <description>StaticListableBeanFactory BeanFactory 的最简单的实现类，仅仅是一个 Bean 的容器，继承关系简单，可以用来理解 BeanFactory。
+ BeanFactory (org.springframework.beans.factory)  ListableBeanFactory (org.springframework.beans.factory)  StaticListableBeanFactory (org.springframework.beans.factory.support)      Read More  StaticListableBeanFactory 分析  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/__ConfigurationClassUtils/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/__ConfigurationClassUtils/</guid>
+      <description>.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/__ImportBeanDefinitionRegistrar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/__ImportBeanDefinitionRegistrar/</guid>
+      <description>.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/__ImportSelector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/__ImportSelector/</guid>
+      <description>.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/ConfigurableApplicationContext#refresh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/ConfigurableApplicationContext#refresh/</guid>
+      <description>ConfigurableApplicationContext.refresh 继承关系  ConfigurableApplicationContext (org.springframework.context)  ApplicationContext (org.springframework.context)  EnvironmentCapable (org.springframework.core.env) ListableBeanFactory (org.springframework.beans.factory)  BeanFactory (org.springframework.beans.factory)   HierarchicalBeanFactory (org.springframework.beans.factory)  BeanFactory (org.springframework.beans.factory)   MessageSource (org.springframework.context) ApplicationEventPublisher (org.springframework.context) ResourcePatternResolver (org.springframework.core.io.support)  ResourceLoader (org.springframework.core.io)     Lifecycle (org.springframework.context) Closeable (java.io)  AutoCloseable (java.lang)      实现关系  ConfigurableApplicationContext (org.springframework.context)  .. AbstractApplicationContext (org.springframework.context.support)  GenericApplicationContext (org.springframework.context.support)  GenericXmlApplicationContext (org.springframework.context.support) StaticApplicationContext (org.springframework.context.support) GenericWebApplicationContext (org.springframework.web.context.support) AnnotationConfigApplicationContext (org.springframework.context.annotation)  .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/CacheNamespaceHandler/noting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/CacheNamespaceHandler/noting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/component-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/component-scan/</guid>
+      <description>&amp;lt;context: component-scan&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/load-time-weaver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/load-time-weaver/</guid>
+      <description>&amp;lt;context: load-time-weaver/&amp;gt; 标签解析器： org.springframework.context.config.LoadTimeWeaverBeanDefinitionParser , @since 2.5
+主要功能 在Java 语言中，从织入切面的方式上来看，存在三种织入方式：编译期织入、类加载期织入 和 运行期织入。
+ 编译期织入 是指在Java编译期，采用特殊的编译器，将切面织入到Java类中 类加载期织入 则指通过 特殊的类加载器 或 javaagent 机制，在类字节码加载到JVM时，织入切面 运行期织入 则是采用CGLib工具或JDK动态代理进行切面的织入。  load-time-weaver 就是 采用 类加载期织入 的方式。
+ 如果程序运行在 Web 容器中，可能是通过 Web 容器 ClassLoader 对外提供的接口，在类加载到内存的时候修改类的字节码文件 如果 是在 Spring 没有支持 的 LTW Web 容器中、或者非 Web 容器，可以通过 Spring 提供 Agent spring-instrument 通过 -javaagent 的方式启动来支持 类加载期织入 还可以通过 指定自定义的 ClassLoader 在获取类字节码的时候 织入 代码。  使用方式 &amp;lt;context:load-time-weaver aspectj-weaving=&amp;#34;on|off|autodetect&amp;#34; weaver-class=&amp;#34;默认：org.springframework.context.weaving.DefaultContextLoadTimeWeaver&amp;#34; /&amp;gt; LoadTimeWeaverBeanDefinitionParser.doParse 伪代码 if( aspectj-weaving == on || (aspectj-weaving == autodetect &amp;amp;&amp;amp; exist(&amp;#34;META-INF/aop.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/spring-configured/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/spring-configured/</guid>
+      <description>&amp;lt;context: spring-configured/&amp;gt; &amp;lt;context:spring-configured/&amp;gt; 等同于 &amp;lt;aop:spring-configured/&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/JeeNamespaceHandler/noting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/JeeNamespaceHandler/noting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/LangNamespaceHandler/noting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/LangNamespaceHandler/noting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/TaskNamespaceHandler/noting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/TaskNamespaceHandler/noting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/cglib/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/cglib/</guid>
+      <description>cglib cglib 已纳入 spring-core 模块，包 org.springframework.cglib.proxy。
+入门示例 Callback  Callback (..cglib.proxy) ：空接口  MethodInterceptor (..cglib.proxy)： InvocationHandler (..cglib.proxy)： NoOp (..cglib.proxy)：什么也不做，类似于直接调用目标对象 FixedValue (..cglib.proxy)：不调用 目标方法，而是返回一个固定的值 LazyLoader (..cglib.proxy)： Dispatcher (..cglib.proxy)： ProxyRefDispatcher (..cglib.proxy)：    Read More  CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载） cglib How To  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/__ParameterizedTypeReference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/__ParameterizedTypeReference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/__SpringProperties/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/__SpringProperties/</guid>
+      <description>SpringProperties </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/Constants/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/Constants/</guid>
+      <description>Constants 该类用来获取类中的常量
+package org.springframework.core; import java.lang.reflect.Field; import java.util.*; import org.springframework.util.Assert; import org.springframework.util.ReflectionUtils; /** * @since 16.03.2003 * * 根据常量名获取值 * 根据常量名 前缀/后缀 获取 常量名/值 列表 * 等 */ public class Constants { ... public Constants(Class&amp;lt;?&amp;gt; clazz) { Assert.notNull(clazz, &amp;#34;Class must not be null&amp;#34;); this.className = clazz.getName(); Field[] fields = clazz.getFields(); for (Field field : fields) { // 字段是否由 public static final 修饰  if (ReflectionUtils.isPublicStaticFinal(field)) { String name = field.getName(); try { Object value = field.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/Resource/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/Resource/</guid>
+      <description>Resource Resource 是 Spring 对于资源文件的统一访问接口。
+package org.springframework.core.io; /** * @since 28.12.2003 * @see #getInputStream() * @see #getURL() * @see #getURI() * @see #getFile() * @see WritableResource * @see ContextResource * @see UrlResource * @see ClassPathResource * @see FileSystemResource * @see PathResource * @see ByteArrayResource * @see InputStreamResource */ public interface Resource extends InputStreamSource { /** * 判断对应的资源是否真的存在 */ boolean exists(); /** * 用于判断对应资源的内容是否可读。 * 需要注意的是当其结果为true的时候，其内容未必真的可读，但如果返回false，则其内容必定不可读 */ boolean isReadable(); /** * 用于判断当前资源是否代表一个已打开的输入流， * 如果结果为true，则表示当前资源的输入流不可多次读取，且在读取以后需要关闭，以防止内存泄露 */ boolean isOpen(); /** * 返回当前资源对应的URL * 如果当前资源不能解析为一个URL则会抛出异常。如ByteArrayResource就不能解析为一个URL */ URL getURL() throws IOException; /** * 返回当前资源对应的URI * 如果当前资源不能解析为一个URI则会抛出异常 * @since 2.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourceLoader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourceLoader/</guid>
+      <description>ResourceLoader ResourceLoader (org.springframework.core.io) interface DefaultResourceLoader (org.springframework.core.io) class ResourcePatternResolver (org.springframework.core.io.support) interface ... ResourceLoader 是一个接口，定义了从 类路径 和 文件系统 中加载资源。 作用主要是 对各种资源路径（location）进行封装，返回 org.springframework.core.io.Resource 接口的实现，通过统一的方式进行访问
+package org.springframework.core.io; import org.springframework.util.ResourceUtils; public interface ResourceLoader { /** Pseudo URL prefix for loading from the class path: &amp;#34;classpath:&amp;#34; */ String CLASSPATH_URL_PREFIX = ResourceUtils.CLASSPATH_URL_PREFIX; Resource getResource(String location); ClassLoader getClassLoader(); } ResourceLoader 有一个默认实现 DefaultResourceLoader，大致策略是：
+ 如果注册的有 ProtocolResolver 并且其返回的资源 非null，直接通过 ProtocolResolver 获取资源 如果以 / 开头，直接返回 ClassPathContextResource 如果以 classpath: 开头，如果是则去掉classpath: 前缀返回对应的 ClassPathResource 否则就把它当做一个 URL 来处理，封装成一个 UrlResource 进行返回 如果当成 URL 处理也失败的话就把对应的资源当成是一个 ClassPathContextResource 进行返回。  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourcePatternResolver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourcePatternResolver/</guid>
+      <description>ResourcePatternResolver ResourceLoader 提供 classpath 下单资源文件的载入，而 ResourcePatternResolver 提供了多资源文件的载入
+package org.springframework.core.io.support; import java.io.IOException; import org.springframework.core.io.Resource; import org.springframework.core.io.ResourceLoader; /** * @since 1.0.2 * @see org.springframework.core.io.Resource * @see org.springframework.core.io.ResourceLoader * @see org.springframework.context.ApplicationContext * @see org.springframework.context.ResourceLoaderAware */ public interface ResourcePatternResolver extends ResourceLoader { String CLASSPATH_ALL_URL_PREFIX = &amp;#34;classpath*:&amp;#34; // 新增方法，相比 ResourceLoader 可以加载多个资源  Resource[] getResources(String locationPattern) throws IOException; } ResourcePatternResolver 的继承关系如下：
+ResourcePatternResolver (org.springframework.core.io.support) PathMatchingResourcePatternResolver (org.springframework.core.io.support) ApplicationContext (org.springframework.context) ConfigurableApplicationContext (org.springframework.context) AbstractApplicationContext (org.springframework.context.support) ... 以 PathMatchingResourcePatternResolver 为例，getResources 方法的实现如下</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/SpringVersion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/SpringVersion/</guid>
+      <description>SpringVersion 该类用来获取 Spring 版本
+实现如下：
+package org.springframework.core; /** * Class that exposes the Spring version. Fetches the * &amp;#34;Implementation-Version&amp;#34; manifest attribute from the jar file. * * @since 1.1 */ public class SpringVersion { public static String getVersion() { Package pkg = SpringVersion.class.getPackage(); return (pkg != null ? pkg.getImplementationVersion() : null); } } 读取的是 spring-core-x.x.x.RELEASE.jar/META-INF/MANIFEST.MF 文件中的 Implementation-Version 内容
+Manifest-Version: 1.0 Implementation-Title: spring-core Implementation-Version: 4.3.10.RELEASE Created-By: 1.8.0_121 (Oracle Corporation) Read More  JDK6 Doc： java.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/objenesis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/objenesis/</guid>
+      <description>Objenesis Objenesis 是一个小型Java库，作用只有一个：实例化一个特定类的对象。
+Java 已经支持使用 Class.newInstance() 动态实例化类的实例。但是类必须拥有一个合适的构造器。有很多场景下不能使用这种方式实例化类，比如：
+ 构造器需要参数 构造器有副作用 构造器会抛异常  因此，在类库中经常会有类必须拥有一个默认构造器的限制。Objenesis 通过绕开对象实例构造器来克服这个限制。
+实例化一个对象而不调用构造器是一个特殊的行为，然而在一些特定的场合是有用的：
+ 序列化，远程调用和持久化 -对象需要实例化并存储为到一个特殊的状态，而没有调用代码 代理，AOP库和Mock对象 -类可以被子类继承而子类不用担心父类的构造器 容器框架 -对象可以以非标准的方式被动态实例化  Spring 已经将 Objenesis 纳入到了 spring-core 模块中，所以使用的时候不同单独引用。 Spring 在 采用 cglib 代理的时候，会默认先采用 Objenesis 实例化代理类( @see: ObjenesisCglibAopProxy)
+示例 Hello 类 public class Hello { private static String prefix = &amp;#34;Hello &amp;#34;; { System.out.println(&amp;#34;do &amp;lt;init&amp;gt; Hello&amp;#34;); } public Hello() { System.out.println(&amp;#34;do init Hello&amp;#34;); } public void say(String something) { System.out.println(prefix + something); System.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__Base64Utils/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__Base64Utils/</guid>
+      <description>Base64Utils </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ClassUtils/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ClassUtils/</guid>
+      <description>ClassUtils </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__FileCopyUtils/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__FileCopyUtils/</guid>
+      <description>FileCopyUtils </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ReflectionUtils/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ReflectionUtils/</guid>
+      <description>ReflectionUtils </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/AntPathMatcher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/AntPathMatcher/</guid>
+      <description>AntPathMatcher 整个 Spring框架 的路径解析都是按照Ant的风格来的，如： package 匹配，Spring MVC 的路径匹配
+Ant 风格匹配规则 通配符  ? 匹配任何单字符 * 匹配0或者任意数量的字符 ** 匹配0或者更多的目录  最长匹配原则 URL请求/app/dir/file.jsp，现在存在两个路径匹配模式/**/*.jsp和/app/dir/*.jsp，那么会根据模式 /app/dir/*.jsp 来匹配
+示例    URL路径 说明     /app/*.x 所有在app路径下的.x文件   /app/p?ttern /app/pattern 和 /app/pXttern,但是不包括 /app/pttern   /**/example /app/example, /app/foo/example, 和 /example   /app/**/dir/file.* /app/dir/file.jsp, /app/foo/dir/file.html,/app/foo/bar/dir/file.pdf, 和 /app/dir/file.java   /**/*.jsp 任何的 .jsp 文件     Ant 风格 是什么?
+ PathMatcher 的 AntPathMatcher 实现 package org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/ResourceUtils/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/ResourceUtils/</guid>
+      <description>ResourceUtils package org.springframework.util; import java.io.File; import java.io.FileNotFoundException; import java.net.MalformedURLException; import java.net.URI; import java.net.URISyntaxException; import java.net.URL; import java.net.URLConnection; /** * @since 1.1.5 * @see org.springframework.core.io.Resource * @see org.springframework.core.io.ClassPathResource * @see org.springframework.core.io.FileSystemResource * @see org.springframework.core.io.UrlResource * @see org.springframework.core.io.ResourceLoader */ public abstract class ResourceUtils { public static final String CLASSPATH_URL_PREFIX = &amp;#34;classpath:&amp;#34;; public static final String FILE_URL_PREFIX = &amp;#34;file:&amp;#34;; public static final String JAR_URL_PREFIX = &amp;#34;jar:&amp;#34;; public static final String WAR_URL_PREFIX = &amp;#34;war:&amp;#34;; .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-test/_sidebar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-test/_sidebar/</guid>
+      <description> README SpringRunner  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-test/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-test/README/</guid>
+      <description>asd  官方文档  Spring Framework Testing  14. Unit Testing 15. Integration Testing 16. Further Resources    Spring Boot - Part IV. Spring Boot features - 41. Testing     </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-tx/EnableTransactionManagement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-tx/EnableTransactionManagement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-tx/PlatformTransactionManager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-tx/PlatformTransactionManager/</guid>
+      <description>PlatformTransactionManager package org.springframework.transaction; /** * This is the central interface in Spring&amp;#39;s transaction infrastructure. * Applications can use this directly, but it is not primarily meant as API: * Typically, applications will work with either TransactionTemplate or * declarative transaction demarcation through AOP. * * &amp;lt;p&amp;gt;For implementors, it is recommended to derive from the provided * {@link org.springframework.transaction.support.AbstractPlatformTransactionManager} * class, which pre-implements the defined propagation behavior and takes care * of transaction synchronization handling.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-tx/todo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-tx/todo/</guid>
+      <description>TODO TransactionAspectSupport.completeTransactionAfterThrowing rollbackFor = Exception.class 提交后抛出 回滚后抛出
+Spring 视图传播机制的实现方式 Spring rollbackFor 的实现方式
+http://www.iteye.com/topic/35907/ https://blog.csdn.net/aya19880214/article/details/50640596 https://blog.csdn.net/seelye/article/details/40144817 https://blog.csdn.net/dapinxiaohuo/article/details/52092447 https://blog.csdn.net/dlgdlg_2008/article/details/73835487</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-tx/usage-mode/code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-tx/usage-mode/code/</guid>
+      <description>Spring 事务使用 - 编码方式 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-webmvc/_sidebar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-webmvc/_sidebar/</guid>
+      <description> HandlerInterceptor WebRequestInterceptor OncePerRequestFilter WebMvcConfigurerAdapter  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-webmvc/HandlerInterceptor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-webmvc/HandlerInterceptor/</guid>
+      <description>HandlerInterceptor package xyz.kail.demo.mvc.interceptor; import org.springframework.web.servlet.HandlerInterceptor; import org.springframework.web.servlet.ModelAndView; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; public class SpringMVCInterceptor implements HandlerInterceptor { /** * 该方法将在Controller处理之前进行调用，SpringMVC中的Interceptor拦截器是链式的，可以同时存在 多个Interceptor， * 然后SpringMVC会根据声明的前后顺序一个接一个的执行，而且所有的Interceptor中的preHandle方法都会在 Controller方法调用之前调用。 * SpringMVC的这种Interceptor链式结构也是可以进行中断的，这种中断方式是令preHandle的返回值为false，当preHandle的返回值为false的时候整个请求就结束了。 */ @Override public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception { return true; } /** * 在当前请求进行处理之后，也就是Controller 方法调用之后执行，但是它会在DispatcherServlet 进行视图返回渲染之前被调用， * 所以我们可以在这个方法中对Controller 处理之后的ModelAndView 对象进行操作。 * postHandle 方法被调用的方向跟preHandle 是相反的，也就是说先声明的Interceptor 的postHandle 方法反而会后执行， */ @Override public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception { } /** * 该方法将在整个请求结束之后，也就是在DispatcherServlet 渲染了对应的视图之后执行。 * 这个方法的主要作用是用于进行资源清理工作的。 */ @Override public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception { } } 拦截器生效 XML &amp;lt;beans xmlns=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-webmvc/OncePerRequestFilter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-webmvc/OncePerRequestFilter/</guid>
+      <description>OncePerRequestFilter OncePerRequestFilter继承自GenericFilterBean，所以我们知道，genericFilterBean是任何类型的过滤器的一个比较方便的超类， 这个类主要实现的就是从web.xml文件中取得init-param中设定的值，然后对Filter进行初始化（当然，其子类可以覆盖init方法）。
+OncePerRequestFilter继承自GenericFilterBean，那么它自然知道怎么去获取配置文件中的属性及其值， 所以其重点不在于取值，而在于确保在接收到一个request后，每个filter只执行一次，它的子类只需要关注Filter的具体实现即doFilterInternal。
+AbstractRequestLoggingFilter是对OncePerRequestFilter的扩展，它除了遗传了其父类及祖先类的所有功能外，还在doFilterInternal中决定了在过滤之前和之后执行的事件，它的子类关注的是beforeRequest和afterRequest。
+总体来说，这三个类分别执行了Filter的某部分功能，当然，具体如何执行由它们的子类规定，若你需要实现自己的过滤器，也可以根据上文所述继承你所需要的类。
+import org.springframework.stereotype.Component; import org.springframework.web.filter.OncePerRequestFilter; import javax.servlet.FilterChain; import javax.servlet.ServletException; import javax.servlet.annotation.WebFilter; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.io.IOException; @Component @WebFilter(urlPatterns = &amp;#34;/**&amp;#34;, filterName = &amp;#34;allFilter&amp;#34;) public class MyFilter extends OncePerRequestFilter { @Override protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException { System.out.println(&amp;#34;before&amp;#34;); filterChain.doFilter(httpServletRequest, httpServletResponse); System.out.println(&amp;#34;after&amp;#34;); } } Read More  Spring MVC过滤器-超类  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-webmvc/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-webmvc/README/</guid>
+      <description>asd</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-webmvc/WebMvcConfigurerAdapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-webmvc/WebMvcConfigurerAdapter/</guid>
+      <description>WebMvcConfigurerAdapter </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Spring/docs/spring-webmvc/WebRequestInterceptor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Spring/docs/spring-webmvc/WebRequestInterceptor/</guid>
+      <description>WebRequestInterceptor 与HandlerInterceptor接口类似，区别是WebRequestInterceptor的preHandle没有返回值。 还有就是WebRequestInterceptor是针对请求的，接口方法参数中没有response。
+import org.springframework.ui.ModelMap; import org.springframework.web.context.request.WebRequest; import org.springframework.web.context.request.WebRequestInterceptor; public class RequestInterceptor implements WebRequestInterceptor { @Override public void preHandle(WebRequest webRequest) throws Exception { } @Override public void postHandle(WebRequest webRequest, ModelMap modelMap) throws Exception { } @Override public void afterCompletion(WebRequest webRequest, Exception e) throws Exception { } } 配置生效 Bean Config import org.springframework.stereotype.Component; import org.springframework.web.servlet.config.annotation.InterceptorRegistry; import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter; @Component public class AllInterceptor extends WebMvcConfigurerAdapter { @Override public void addInterceptors(InterceptorRegistry registry) { // 拦截所有  // 排除 /login/**  registry.</description>
+    </item>
+    
+  </channel>
+</rss>
