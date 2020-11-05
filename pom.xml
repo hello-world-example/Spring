@@ -17,6 +17,7 @@
         <module>demo-spring-integration</module>
         <module>demo-spring-webflux</module>
         <module>demo-spring-beans</module>
+        <module>draw-spring</module>
     </modules>
 
 
