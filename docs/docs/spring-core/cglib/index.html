@@ -4,17 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Cglib"><meta property="og:title" content="" />
+<meta name="description" content="cglib cglib 已纳入 spring-core 模块，包 org.springframework.cglib.proxy。
+入门示例 Callback  Callback (..cglib.proxy) ：空接口  MethodInterceptor (..cglib.proxy)： InvocationHandler (..cglib.proxy)： NoOp (..cglib.proxy)：什么也不做，类似于直接调用目标对象 FixedValue (..cglib.proxy)：不调用 目标方法，而是返回一个固定的值 LazyLoader (..cglib.proxy)： Dispatcher (..cglib.proxy)： ProxyRefDispatcher (..cglib.proxy)：    Read More   CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载）  cglib How To  "><meta property="og:title" content="" />
 <meta property="og:description" content="cglib cglib 已纳入 spring-core 模块，包 org.springframework.cglib.proxy。
-入门示例 Callback  Callback (..cglib.proxy) ：空接口  MethodInterceptor (..cglib.proxy)： InvocationHandler (..cglib.proxy)： NoOp (..cglib.proxy)：什么也不做，类似于直接调用目标对象 FixedValue (..cglib.proxy)：不调用 目标方法，而是返回一个固定的值 LazyLoader (..cglib.proxy)： Dispatcher (..cglib.proxy)： ProxyRefDispatcher (..cglib.proxy)：    Read More  CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载） cglib How To  " />
+入门示例 Callback  Callback (..cglib.proxy) ：空接口  MethodInterceptor (..cglib.proxy)： InvocationHandler (..cglib.proxy)： NoOp (..cglib.proxy)：什么也不做，类似于直接调用目标对象 FixedValue (..cglib.proxy)：不调用 目标方法，而是返回一个固定的值 LazyLoader (..cglib.proxy)： Dispatcher (..cglib.proxy)： ProxyRefDispatcher (..cglib.proxy)：    Read More   CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载）  cglib How To  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Spring/docs/spring-core/cglib/" />
-
+<meta property="article:modified_time" content="2020-03-02T18:15:15+08:00" />
 <title>Cglib | Spring</title>
 <link rel="icon" href="/Spring/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/Spring/book.min.5ffea21f70a71b9e6059006c33cc74cf184e208cb9897c6b24840c9f4e0e385e.css" integrity="sha256-X/6iH3CnG55gWQBsM8x0zxhOIIy5iXxrJIQMn04OOF4=">
+<link rel="stylesheet" href="/Spring/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
 
 
 <!--
@@ -41,51 +42,75 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
+
   <ul>
 <li>
 <p><strong>spring-core🍃</strong></p>
 <ul>
 <li><strong>springframework.core🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
-<li><a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
 </ul>
 </li>
 <li><strong>springframework.core.io🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
-<li><a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
-<li><a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
 </ul>
 </li>
 <li><strong>springframework.util🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
 </ul>
 </li>
-<li><a href="/Spring/docs/spring-core/cglib/"class=active>cglib 🌱</a></li>
-<li><a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/cglib/"class=active>cglib 🌱</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
 </ul>
 </li>
 <li>
 <p><strong>spring-beans🍃</strong></p>
 <ul>
-<li><a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
+<li>
+  <a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
 <ul>
-<li><a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
-<li><a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
+<li>
+  <a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
 <ul>
-<li><a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
-<li><a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
-<li><a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
 </ul>
 </li>
 </ul>
@@ -97,9 +122,12 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><strong>ContextNamespaceHandler</strong>
 <ul>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -109,20 +137,26 @@ https://github.com/alex-shpak/hugo-book
 <li>
 <p><strong>spring-aop</strong></p>
 <ul>
-<li><a href="spring-aop/core.md">概念</a></li>
-<li><a href="spring-aop/aopalliance.md">aopalliance</a></li>
+<li>
+  <a href="spring-aop/core.md">概念</a></li>
+<li>
+  <a href="spring-aop/aopalliance.md">aopalliance</a></li>
 <li><strong>Spring AOP 使用方式</strong>
 <ul>
-<li><a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
-<li><a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
-<li><a href="spring-aop/usage/code-usage.md">基于编码</a></li>
+<li>
+  <a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
+<li>
+  <a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
+<li>
+  <a href="spring-aop/usage/code-usage.md">基于编码</a></li>
 </ul>
 </li>
 <li><strong>Handlers</strong>
 <ul>
 <li><strong>AopNamespaceHandler</strong>
 <ul>
-<li><a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
+<li>
+  <a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -163,6 +197,11 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
@@ -196,9 +235,13 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#入门示例">入门示例</a></li>
-    <li><a href="#callback">Callback</a></li>
-    <li><a href="#read-more">Read More</a></li>
+    <li><a href="#cglib">cglib</a>
+      <ul>
+        <li><a href="#入门示例">入门示例</a></li>
+        <li><a href="#callback">Callback</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -209,7 +252,8 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="cglib">cglib</h1>
+      
+  <article class="markdown"><h1 id="cglib">cglib</h1>
 <p>cglib 已纳入 spring-core 模块，包 <code>org.springframework.cglib.proxy</code>。</p>
 <h2 id="入门示例">入门示例</h2>
 <h2 id="callback">Callback</h2>
@@ -228,17 +272,28 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 <h2 id="read-more">Read More</h2>
 <ul>
-<li><a href="https://blog.csdn.net/difffate/article/details/70552056">CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载）</a></li>
-<li><a href="https://github.com/cglib/cglib/wiki/How-To">cglib How To</a></li>
+<li>
+  <a href="https://blog.csdn.net/difffate/article/details/70552056">CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载）</a></li>
+<li>
+  <a href="https://github.com/cglib/cglib/wiki/How-To">cglib How To</a></li>
 </ul>
 </article>
  
+      
 
       <footer class="book-footer">
         
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/commit/b90f62a849672b1ba98d24c703b5ac3749e622ff" title='Last modified by kailbin | Mar 2, 2020' target="_blank" rel="noopener">
+      <img src="/Spring/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Mar 2, 2020</span>
+    </a>
+  </div>
 
 
 
@@ -253,14 +308,17 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+      </footer>
+
+      
   
   <div class="book-comments">
 
 </div>
   
  
-      </footer>
-      
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
@@ -268,9 +326,13 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#入门示例">入门示例</a></li>
-    <li><a href="#callback">Callback</a></li>
-    <li><a href="#read-more">Read More</a></li>
+    <li><a href="#cglib">cglib</a>
+      <ul>
+        <li><a href="#入门示例">入门示例</a></li>
+        <li><a href="#callback">Callback</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

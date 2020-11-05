@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Configurable Application Context#refresh"><meta property="og:title" content="" />
+<meta name="description" content="ConfigurableApplicationContext.refresh 继承关系  ConfigurableApplicationContext (org.springframework.context)  ApplicationContext (org.springframework.context)  EnvironmentCapable (org.springframework.core.env) ListableBeanFactory (org.springframework.beans.factory)  BeanFactory (org.springframework.beans.factory)   HierarchicalBeanFactory (org.springframework.beans.factory)  BeanFactory (org.springframework.beans.factory)   MessageSource (org.springframework.context) ApplicationEventPublisher (org.springframework.context) ResourcePatternResolver (org.springframework.core.io.support)  ResourceLoader (org.springframework.core.io)     Lifecycle (org.springframework.context) Closeable (java.io)  AutoCloseable (java.lang)      实现关系  ConfigurableApplicationContext (org.springframework.context)  .. AbstractApplicationContext (org.springframework.context.support)  GenericApplicationContext (org.springframework.context.support)  GenericXmlApplicationContext (org.springframework.context.support) StaticApplicationContext (org.springframework.context.support) GenericWebApplicationContext (org.springframework.web.context.support) AnnotationConfigApplicationContext (org.springframework.context.annotation)  ."><meta property="og:title" content="" />
 <meta property="og:description" content="ConfigurableApplicationContext.refresh 继承关系  ConfigurableApplicationContext (org.springframework.context)  ApplicationContext (org.springframework.context)  EnvironmentCapable (org.springframework.core.env) ListableBeanFactory (org.springframework.beans.factory)  BeanFactory (org.springframework.beans.factory)   HierarchicalBeanFactory (org.springframework.beans.factory)  BeanFactory (org.springframework.beans.factory)   MessageSource (org.springframework.context) ApplicationEventPublisher (org.springframework.context) ResourcePatternResolver (org.springframework.core.io.support)  ResourceLoader (org.springframework.core.io)     Lifecycle (org.springframework.context) Closeable (java.io)  AutoCloseable (java.lang)      实现关系  ConfigurableApplicationContext (org.springframework.context)  .. AbstractApplicationContext (org.springframework.context.support)  GenericApplicationContext (org.springframework.context.support)  GenericXmlApplicationContext (org.springframework.context.support) StaticApplicationContext (org.springframework.context.support) GenericWebApplicationContext (org.springframework.web.context.support) AnnotationConfigApplicationContext (org.springframework.context.annotation)  ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Spring/docs/spring-context/ConfigurableApplicationContext#refresh/" />
-
+<meta property="article:modified_time" content="2020-03-02T18:15:15+08:00" />
 <title>Configurable Application Context#refresh | Spring</title>
 <link rel="icon" href="/Spring/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/Spring/book.min.5ffea21f70a71b9e6059006c33cc74cf184e208cb9897c6b24840c9f4e0e385e.css" integrity="sha256-X/6iH3CnG55gWQBsM8x0zxhOIIy5iXxrJIQMn04OOF4=">
+<link rel="stylesheet" href="/Spring/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
 
 
 <!--
@@ -40,51 +40,75 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
+
   <ul>
 <li>
 <p><strong>spring-core🍃</strong></p>
 <ul>
 <li><strong>springframework.core🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
-<li><a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
 </ul>
 </li>
 <li><strong>springframework.core.io🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
-<li><a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
-<li><a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
 </ul>
 </li>
 <li><strong>springframework.util🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
 </ul>
 </li>
-<li><a href="/Spring/docs/spring-core/cglib/">cglib 🌱</a></li>
-<li><a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/cglib/">cglib 🌱</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
 </ul>
 </li>
 <li>
 <p><strong>spring-beans🍃</strong></p>
 <ul>
-<li><a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
+<li>
+  <a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
 <ul>
-<li><a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
-<li><a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
+<li>
+  <a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
 <ul>
-<li><a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
-<li><a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
-<li><a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
 </ul>
 </li>
 </ul>
@@ -96,9 +120,12 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><strong>ContextNamespaceHandler</strong>
 <ul>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -108,20 +135,26 @@ https://github.com/alex-shpak/hugo-book
 <li>
 <p><strong>spring-aop</strong></p>
 <ul>
-<li><a href="spring-aop/core.md">概念</a></li>
-<li><a href="spring-aop/aopalliance.md">aopalliance</a></li>
+<li>
+  <a href="spring-aop/core.md">概念</a></li>
+<li>
+  <a href="spring-aop/aopalliance.md">aopalliance</a></li>
 <li><strong>Spring AOP 使用方式</strong>
 <ul>
-<li><a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
-<li><a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
-<li><a href="spring-aop/usage/code-usage.md">基于编码</a></li>
+<li>
+  <a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
+<li>
+  <a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
+<li>
+  <a href="spring-aop/usage/code-usage.md">基于编码</a></li>
 </ul>
 </li>
 <li><strong>Handlers</strong>
 <ul>
 <li><strong>AopNamespaceHandler</strong>
 <ul>
-<li><a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
+<li>
+  <a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -162,6 +195,11 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
@@ -195,54 +233,58 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#继承关系">继承关系</a></li>
-    <li><a href="#实现关系">实现关系</a></li>
-    <li><a href="#abstractapplicationcontext">AbstractApplicationContext</a></li>
-    <li><a href="#-refresh">❤ refresh()</a></li>
-    <li><a href="#preparerefresh-">prepareRefresh() ❤</a></li>
-    <li><a href="#obtainfreshbeanfactory-">obtainFreshBeanFactory() ❤</a>
+    <li><a href="#configurableapplicationcontextrefresh">ConfigurableApplicationContext.refresh</a>
       <ul>
-        <li><a href="#absrefreshableacrefreshbeanfactory">Abs..RefreshableA..C&hellip;refreshBeanFactory()</a></li>
+        <li><a href="#继承关系">继承关系</a></li>
+        <li><a href="#实现关系">实现关系</a></li>
+        <li><a href="#abstractapplicationcontext">AbstractApplicationContext</a></li>
+        <li><a href="#-refresh">❤ refresh()</a></li>
+        <li><a href="#preparerefresh-">prepareRefresh() ❤</a></li>
+        <li><a href="#obtainfreshbeanfactory-">obtainFreshBeanFactory() ❤</a>
+          <ul>
+            <li><a href="#absrefreshableacrefreshbeanfactory">Abs..RefreshableA..C&hellip;refreshBeanFactory()</a></li>
+          </ul>
+        </li>
+        <li><a href="#preparebeanfactory">prepareBeanFactory</a></li>
+        <li><a href="#postprocessbeanfactory">postProcessBeanFactory</a>
+          <ul>
+            <li><a href="#staticwebapplicationcontextspring-web">StaticWebApplicationContext:spring-web</a></li>
+            <li><a href="#genericwebapplicationcontextspring-web">GenericWebApplicationContext:spring-web</a></li>
+            <li><a href="#abstractrefreshablewebapplicationcontextspring-web">AbstractRefreshableWebApplicationContext:spring-web</a></li>
+          </ul>
+        </li>
+        <li><a href="#invokebeanfactorypostprocessors-">invokeBeanFactoryPostProcessors ❤</a></li>
+        <li><a href="#registerbeanpostprocessors">registerBeanPostProcessors</a>
+          <ul>
+            <li><a href="#registerbeanpostprocessors-1">registerBeanPostProcessors？？？</a></li>
+          </ul>
+        </li>
+        <li><a href="#initmessagesource">initMessageSource</a></li>
+        <li><a href="#initapplicationeventmulticaster">initApplicationEventMulticaster</a></li>
+        <li><a href="#onrefresh">onRefresh</a></li>
+        <li><a href="#registerlisteners">registerListeners()</a></li>
+        <li><a href="#finishbeanfactoryinitialization-">finishBeanFactoryInitialization ❤</a>
+          <ul>
+            <li><a href="#preinstantiatesingletons">preInstantiateSingletons</a></li>
+          </ul>
+        </li>
+        <li><a href="#finishrefresh">finishRefresh</a>
+          <ul>
+            <li><a href="#initlifecycleprocessor">initLifecycleProcessor</a></li>
+          </ul>
+        </li>
+        <li><a href="#destroybeans">destroyBeans()</a>
+          <ul>
+            <li><a href="#destroysingleton">destroySingleton</a></li>
+            <li><a href="#destroybean">destroyBean</a></li>
+          </ul>
+        </li>
+        <li><a href="#cancelrefreshex">cancelRefresh(ex)</a></li>
+        <li><a href="#resetcommoncaches">resetCommonCaches()</a></li>
+        <li><a href="#小结">小结</a></li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
-    <li><a href="#preparebeanfactory">prepareBeanFactory</a></li>
-    <li><a href="#postprocessbeanfactory">postProcessBeanFactory</a>
-      <ul>
-        <li><a href="#staticwebapplicationcontextspring-web">StaticWebApplicationContext:spring-web</a></li>
-        <li><a href="#genericwebapplicationcontextspring-web">GenericWebApplicationContext:spring-web</a></li>
-        <li><a href="#abstractrefreshablewebapplicationcontextspring-web">AbstractRefreshableWebApplicationContext:spring-web</a></li>
-      </ul>
-    </li>
-    <li><a href="#invokebeanfactorypostprocessors-">invokeBeanFactoryPostProcessors ❤</a></li>
-    <li><a href="#registerbeanpostprocessors">registerBeanPostProcessors</a>
-      <ul>
-        <li><a href="#registerbeanpostprocessors-1">registerBeanPostProcessors？？？</a></li>
-      </ul>
-    </li>
-    <li><a href="#initmessagesource">initMessageSource</a></li>
-    <li><a href="#initapplicationeventmulticaster">initApplicationEventMulticaster</a></li>
-    <li><a href="#onrefresh">onRefresh</a></li>
-    <li><a href="#registerlisteners">registerListeners()</a></li>
-    <li><a href="#finishbeanfactoryinitialization-">finishBeanFactoryInitialization ❤</a>
-      <ul>
-        <li><a href="#preinstantiatesingletons">preInstantiateSingletons</a></li>
-      </ul>
-    </li>
-    <li><a href="#finishrefresh">finishRefresh</a>
-      <ul>
-        <li><a href="#initlifecycleprocessor">initLifecycleProcessor</a></li>
-      </ul>
-    </li>
-    <li><a href="#destroybeans">destroyBeans()</a>
-      <ul>
-        <li><a href="#destroysingleton">destroySingleton</a></li>
-        <li><a href="#destroybean">destroyBean</a></li>
-      </ul>
-    </li>
-    <li><a href="#cancelrefreshex">cancelRefresh(ex)</a></li>
-    <li><a href="#resetcommoncaches">resetCommonCaches()</a></li>
-    <li><a href="#小结">小结</a></li>
-    <li><a href="#read-more">Read More</a></li>
   </ul>
 </nav>
 
@@ -253,7 +295,8 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="configurableapplicationcontextrefresh">ConfigurableApplicationContext.refresh</h1>
+      
+  <article class="markdown"><h1 id="configurableapplicationcontextrefresh">ConfigurableApplicationContext.refresh</h1>
 <h2 id="继承关系">继承关系</h2>
 <ul>
 <li><strong>ConfigurableApplicationContext</strong> (org.springframework.<strong>context</strong>)
@@ -1013,18 +1056,30 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 <h2 id="read-more">Read More</h2>
 <ul>
-<li><a href="https://blog.csdn.net/boling_cavalry/article/details/80957707">Spring 初始化源码学习三部曲之一：AbstractApplicationContext 构造方法</a></li>
-<li><a href="https://blog.csdn.net/boling_cavalry/article/details/80958832">Spring 初始化源码学习三部曲之二：setConfigLocations 方法</a></li>
-<li><a href="https://blog.csdn.net/boling_cavalry/article/details/81045637">Spring 初始化源码学习三部曲之三：AbstractApplicationContext.refresh 方法</a></li>
+<li>
+  <a href="https://blog.csdn.net/boling_cavalry/article/details/80957707">Spring 初始化源码学习三部曲之一：AbstractApplicationContext 构造方法</a></li>
+<li>
+  <a href="https://blog.csdn.net/boling_cavalry/article/details/80958832">Spring 初始化源码学习三部曲之二：setConfigLocations 方法</a></li>
+<li>
+  <a href="https://blog.csdn.net/boling_cavalry/article/details/81045637">Spring 初始化源码学习三部曲之三：AbstractApplicationContext.refresh 方法</a></li>
 </ul>
 </article>
  
+      
 
       <footer class="book-footer">
         
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/commit/b90f62a849672b1ba98d24c703b5ac3749e622ff" title='Last modified by kailbin | Mar 2, 2020' target="_blank" rel="noopener">
+      <img src="/Spring/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Mar 2, 2020</span>
+    </a>
+  </div>
 
 
 
@@ -1039,14 +1094,17 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+      </footer>
+
+      
   
   <div class="book-comments">
 
 </div>
   
  
-      </footer>
-      
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
@@ -1054,54 +1112,58 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#继承关系">继承关系</a></li>
-    <li><a href="#实现关系">实现关系</a></li>
-    <li><a href="#abstractapplicationcontext">AbstractApplicationContext</a></li>
-    <li><a href="#-refresh">❤ refresh()</a></li>
-    <li><a href="#preparerefresh-">prepareRefresh() ❤</a></li>
-    <li><a href="#obtainfreshbeanfactory-">obtainFreshBeanFactory() ❤</a>
+    <li><a href="#configurableapplicationcontextrefresh">ConfigurableApplicationContext.refresh</a>
       <ul>
-        <li><a href="#absrefreshableacrefreshbeanfactory">Abs..RefreshableA..C&hellip;refreshBeanFactory()</a></li>
+        <li><a href="#继承关系">继承关系</a></li>
+        <li><a href="#实现关系">实现关系</a></li>
+        <li><a href="#abstractapplicationcontext">AbstractApplicationContext</a></li>
+        <li><a href="#-refresh">❤ refresh()</a></li>
+        <li><a href="#preparerefresh-">prepareRefresh() ❤</a></li>
+        <li><a href="#obtainfreshbeanfactory-">obtainFreshBeanFactory() ❤</a>
+          <ul>
+            <li><a href="#absrefreshableacrefreshbeanfactory">Abs..RefreshableA..C&hellip;refreshBeanFactory()</a></li>
+          </ul>
+        </li>
+        <li><a href="#preparebeanfactory">prepareBeanFactory</a></li>
+        <li><a href="#postprocessbeanfactory">postProcessBeanFactory</a>
+          <ul>
+            <li><a href="#staticwebapplicationcontextspring-web">StaticWebApplicationContext:spring-web</a></li>
+            <li><a href="#genericwebapplicationcontextspring-web">GenericWebApplicationContext:spring-web</a></li>
+            <li><a href="#abstractrefreshablewebapplicationcontextspring-web">AbstractRefreshableWebApplicationContext:spring-web</a></li>
+          </ul>
+        </li>
+        <li><a href="#invokebeanfactorypostprocessors-">invokeBeanFactoryPostProcessors ❤</a></li>
+        <li><a href="#registerbeanpostprocessors">registerBeanPostProcessors</a>
+          <ul>
+            <li><a href="#registerbeanpostprocessors-1">registerBeanPostProcessors？？？</a></li>
+          </ul>
+        </li>
+        <li><a href="#initmessagesource">initMessageSource</a></li>
+        <li><a href="#initapplicationeventmulticaster">initApplicationEventMulticaster</a></li>
+        <li><a href="#onrefresh">onRefresh</a></li>
+        <li><a href="#registerlisteners">registerListeners()</a></li>
+        <li><a href="#finishbeanfactoryinitialization-">finishBeanFactoryInitialization ❤</a>
+          <ul>
+            <li><a href="#preinstantiatesingletons">preInstantiateSingletons</a></li>
+          </ul>
+        </li>
+        <li><a href="#finishrefresh">finishRefresh</a>
+          <ul>
+            <li><a href="#initlifecycleprocessor">initLifecycleProcessor</a></li>
+          </ul>
+        </li>
+        <li><a href="#destroybeans">destroyBeans()</a>
+          <ul>
+            <li><a href="#destroysingleton">destroySingleton</a></li>
+            <li><a href="#destroybean">destroyBean</a></li>
+          </ul>
+        </li>
+        <li><a href="#cancelrefreshex">cancelRefresh(ex)</a></li>
+        <li><a href="#resetcommoncaches">resetCommonCaches()</a></li>
+        <li><a href="#小结">小结</a></li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
-    <li><a href="#preparebeanfactory">prepareBeanFactory</a></li>
-    <li><a href="#postprocessbeanfactory">postProcessBeanFactory</a>
-      <ul>
-        <li><a href="#staticwebapplicationcontextspring-web">StaticWebApplicationContext:spring-web</a></li>
-        <li><a href="#genericwebapplicationcontextspring-web">GenericWebApplicationContext:spring-web</a></li>
-        <li><a href="#abstractrefreshablewebapplicationcontextspring-web">AbstractRefreshableWebApplicationContext:spring-web</a></li>
-      </ul>
-    </li>
-    <li><a href="#invokebeanfactorypostprocessors-">invokeBeanFactoryPostProcessors ❤</a></li>
-    <li><a href="#registerbeanpostprocessors">registerBeanPostProcessors</a>
-      <ul>
-        <li><a href="#registerbeanpostprocessors-1">registerBeanPostProcessors？？？</a></li>
-      </ul>
-    </li>
-    <li><a href="#initmessagesource">initMessageSource</a></li>
-    <li><a href="#initapplicationeventmulticaster">initApplicationEventMulticaster</a></li>
-    <li><a href="#onrefresh">onRefresh</a></li>
-    <li><a href="#registerlisteners">registerListeners()</a></li>
-    <li><a href="#finishbeanfactoryinitialization-">finishBeanFactoryInitialization ❤</a>
-      <ul>
-        <li><a href="#preinstantiatesingletons">preInstantiateSingletons</a></li>
-      </ul>
-    </li>
-    <li><a href="#finishrefresh">finishRefresh</a>
-      <ul>
-        <li><a href="#initlifecycleprocessor">initLifecycleProcessor</a></li>
-      </ul>
-    </li>
-    <li><a href="#destroybeans">destroyBeans()</a>
-      <ul>
-        <li><a href="#destroysingleton">destroySingleton</a></li>
-        <li><a href="#destroybean">destroyBean</a></li>
-      </ul>
-    </li>
-    <li><a href="#cancelrefreshex">cancelRefresh(ex)</a></li>
-    <li><a href="#resetcommoncaches">resetCommonCaches()</a></li>
-    <li><a href="#小结">小结</a></li>
-    <li><a href="#read-more">Read More</a></li>
   </ul>
 </nav>
 

@@ -16,9 +16,8 @@
       
       <guid>https://hello-world-example.github.io/Spring/_sidebar/</guid>
       <description>spring-core🍃
- springframework.core🌱  Constants SpringVersion   springframework.core.io🌱  Resource ResourceLoader ResourcePatternResolver   springframework.util🌱  AntPathMatcher   cglib 🌱 objenesis 🌱    spring-beans🍃
- 生命周期 BeanFactory  BeanFactory.getBean StaticListableBeanFactory     FactoryBean BeanFactoryPostProcessor BeanPostProcessor  Aware InitializingBean DisposableBean      spring-context
- Handlers  ContextNamespaceHandler  _&amp;lt;context: component-scan/&amp;gt; &amp;lt;context: load-time-weaver/&amp;gt; &amp;lt;context: spring-configured/&amp;gt;        spring-aop</description>
+ springframework.core🌱   Constants  SpringVersion   springframework.core.io🌱   Resource  ResourceLoader  ResourcePatternResolver   springframework.util🌱   AntPathMatcher    cglib 🌱  objenesis 🌱    spring-beans🍃
+  生命周期  BeanFactory   BeanFactory.getBean  StaticListableBeanFactory      FactoryBean  BeanFactoryPostProcessor  BeanPostProcessor   Aware  InitializingBean  DisposableBean      spring-context</description>
     </item>
     
     <item>
@@ -137,7 +136,9 @@ ProxyFactory proxyFactory = new ProxyFactory(); // 设置目标类 proxyFactory.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/Aware/</guid>
-      <description>beans.factory.Aware /** * A marker superinterface indicating that a bean is eligible to be notified by the * Spring container of a particular framework object through a callback-style method. * The actual method signature is determined by individual subinterfaces but should * typically consist of just one void-returning method that accepts a single argument. * * @link org.springframework.beans.factory.config.BeanPostProcessor * @link org.springframework.context.support.ApplicationContextAwareProcessor * @since 3.1 */ public interface Aware { } context.</description>
+      <description>beans.factory.Aware Aware 是一个标记接口，没有任何方法签名，在 Bean 的声明周期中，通过 BeanPostProcessor 给 Bean 传入声明周期过程中的对象
+/** * @link org.springframework.beans.factory.config.BeanPostProcessor * @link org.springframework.context.support.ApplicationContextAwareProcessor * @since 3.1 */ public interface Aware { } 常用 Aware 简介 context.support.ApplicationContextAwareProcessor ApplicationContextAwareProcessor 处理以下 Aware
+ EnvironmentAware ： 设置 Environment （ConfigurableEnvironment） EmbeddedValueResolverAware ： 设置 StringValueResolver（EmbeddedValueResolver） ResourceLoaderAware ： 设置 ResourceLoaderAware（ConfigurableApplicationContext） ApplicationEventPublisherAware ： 设置 ApplicationEventPublisher（ConfigurableApplicationContext） MessageSourceAware ： 设置 MessageSourceAware（ConfigurableApplicationContext） ApplicationContextAware ： 设置 ApplicationContext（ConfigurableApplicationContext）  private void invokeAwareInterfaces(Object bean) { // env 和 系统属性  if (bean instanceof EnvironmentAware) { ((EnvironmentAware) bean).</description>
     </item>
     
     <item>
@@ -223,7 +224,7 @@ package org.springframework.beans.factory; public interface FactoryBean&amp;lt;T
 在许多应用中，必须在初始化bean之前执行一些操作，并且在容器销毁 bean 之前执行一些清理操作。
 在 Java 中 对象的生命周期 由 new 关键字开始。当我们使用 new 创建一个对象时，它会根据类的层析结构调用一系列的构造函数，最后使对象可用。当这个对象没有任何引用时，它将被垃圾收集。 这是Java中对象的生命周期。
 但在 Spring 中 Bean 的生命周期还有很多事情要做。下面展示的是 Spring Bean 的生命周期图：
- Spring容器在 xml配置文件中(注解扫描、配置Bean 等) 查找bean的定义 通过调用 Class 的默认 无参数构造函数 来实例化 Bean；如果类中只有参数化构造函数，则必须在使用构造函数注入定义bean，否则将抛出bean创建异常。 Spring 将 值 或者 引用 注入到 Bean 的实例中 如果 Bean 实现 BeanNameAware 接口，Spring 会将 bean的ID 传递给 setBeanName() 方法并执行此方法。 如果 Bean 实现 BeanFactoryAware 接口，Spring 将会调用 setBeanFactory() 方法，传入 Bean 工厂 BeanFactory 的实例 如果 Bean 实现 ApplicationContextAware  接口，Spring 将会调用 setApplicationContext() 方法，创建当前应用上下问的引用 ApplicationContext 如果 Bean 实现 BeanPostProcessor 接口，Spring 将会调用 postProcessBeforeInitialization() 方法；@PostConstruct 注解的方法也会在这一步执行 如果 Bean 实现 InitializingBean 接口，Spring 将会 在设置完 Bean 的所有属性后 调用 afterPropertiesSet() 方法；类似地，如果使用 init-method 方法声明bean，则将调用指定的初始化方法 如果 Bean 实现 BeanPostProcessor 接口，Spring 将会调用 postProcessAfterInitialization() 方法， 此时，bean已准备好由应用程序使用，并将保留在应用程序上下文中，直到销毁应用程序上下文。 如果 Bean 实现 DisposableBean 接口，Spring 将会在容器销毁的时候 调用 destroy() 方法；同样，如果使用 destroy-method 声明任何bean，则将调用指定的方法。  生命周期之前  容器启动时最先调用 org.</description>
+  Spring容器在 xml配置文件中(注解扫描、配置Bean 等) 查找bean的定义 通过调用 Class 的默认 无参数构造函数 来实例化 Bean；如果类中只有参数化构造函数，则必须在使用构造函数注入定义bean，否则将抛出bean创建异常。 Spring 将 值 或者 引用 注入到 Bean 的实例中 如果 Bean 实现 BeanNameAware 接口，Spring 会将 bean的ID 传递给 setBeanName() 方法并执行此方法。 如果 Bean 实现 BeanFactoryAware 接口，Spring 将会调用 setBeanFactory() 方法，传入 Bean 工厂 BeanFactory 的实例 如果 Bean 实现 ApplicationContextAware  接口，Spring 将会调用 setApplicationContext() 方法，创建当前应用上下问的引用 ApplicationContext 如果 Bean 实现 BeanPostProcessor 接口，Spring 将会调用 postProcessBeforeInitialization() 方法；@PostConstruct 注解的方法也会在这一步执行 如果 Bean 实现 InitializingBean 接口，Spring 将会 在设置完 Bean 的所有属性后 调用 afterPropertiesSet() 方法；类似地，如果使用 init-method 方法声明bean，则将调用指定的初始化方法 如果 Bean 实现 BeanPostProcessor 接口，Spring 将会调用 postProcessAfterInitialization() 方法， 此时，bean已准备好由应用程序使用，并将保留在应用程序上下文中，直到销毁应用程序上下文。 如果 Bean 实现 DisposableBean 接口，Spring 将会在容器销毁的时候 调用 destroy() 方法；同样，如果使用 destroy-method 声明任何bean，则将调用指定的方法。  生命周期之前  容器启动时最先调用 org.</description>
     </item>
     
     <item>
@@ -265,7 +266,7 @@ package org.springframework.beans.factory; import org.springframework.beans.Bean
       
       <guid>https://hello-world-example.github.io/Spring/docs/spring-beans/StaticListableBeanFactory/</guid>
       <description>StaticListableBeanFactory BeanFactory 的最简单的实现类，仅仅是一个 Bean 的容器，继承关系简单，可以用来理解 BeanFactory。
- BeanFactory (org.springframework.beans.factory)  ListableBeanFactory (org.springframework.beans.factory)  StaticListableBeanFactory (org.springframework.beans.factory.support)      Read More  StaticListableBeanFactory 分析  </description>
+ BeanFactory (org.springframework.beans.factory)  ListableBeanFactory (org.springframework.beans.factory)  StaticListableBeanFactory (org.springframework.beans.factory.support)      Read More   StaticListableBeanFactory 分析  </description>
     </item>
     
     <item>
@@ -377,7 +378,7 @@ package org.springframework.beans.factory; import org.springframework.beans.Bean
       
       <guid>https://hello-world-example.github.io/Spring/docs/spring-core/cglib/</guid>
       <description>cglib cglib 已纳入 spring-core 模块，包 org.springframework.cglib.proxy。
-入门示例 Callback  Callback (..cglib.proxy) ：空接口  MethodInterceptor (..cglib.proxy)： InvocationHandler (..cglib.proxy)： NoOp (..cglib.proxy)：什么也不做，类似于直接调用目标对象 FixedValue (..cglib.proxy)：不调用 目标方法，而是返回一个固定的值 LazyLoader (..cglib.proxy)： Dispatcher (..cglib.proxy)： ProxyRefDispatcher (..cglib.proxy)：    Read More  CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载） cglib How To  </description>
+入门示例 Callback  Callback (..cglib.proxy) ：空接口  MethodInterceptor (..cglib.proxy)： InvocationHandler (..cglib.proxy)： NoOp (..cglib.proxy)：什么也不做，类似于直接调用目标对象 FixedValue (..cglib.proxy)：不调用 目标方法，而是返回一个固定的值 LazyLoader (..cglib.proxy)： Dispatcher (..cglib.proxy)： ProxyRefDispatcher (..cglib.proxy)：    Read More   CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载）  cglib How To  </description>
     </item>
     
     <item>
@@ -510,8 +511,7 @@ Java 已经支持使用 Class.newInstance() 动态实例化类的实例。但是
       <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/AntPathMatcher/</guid>
       <description>AntPathMatcher 整个 Spring框架 的路径解析都是按照Ant的风格来的，如： package 匹配，Spring MVC 的路径匹配
 Ant 风格匹配规则 通配符  ? 匹配任何单字符 * 匹配0或者任意数量的字符 ** 匹配0或者更多的目录  最长匹配原则 URL请求/app/dir/file.jsp，现在存在两个路径匹配模式/**/*.jsp和/app/dir/*.jsp，那么会根据模式 /app/dir/*.jsp 来匹配
-示例    URL路径 说明     /app/*.x 所有在app路径下的.x文件   /app/p?ttern /app/pattern 和 /app/pXttern,但是不包括 /app/pttern   /**/example /app/example, /app/foo/example, 和 /example   /app/**/dir/file.* /app/dir/file.jsp, /app/foo/dir/file.html,/app/foo/bar/dir/file.pdf, 和 /app/dir/file.java   /**/*.jsp 任何的 .jsp 文件     Ant 风格 是什么?
- PathMatcher 的 AntPathMatcher 实现 package org.</description>
+示例    URL路径 说明     /app/*.x 所有在app路径下的.x文件   /app/p?ttern /app/pattern 和 /app/pXttern,但是不包括 /app/pttern   /**/example /app/example, /app/foo/example, 和 /example   /app/**/dir/file.* /app/dir/file.jsp, /app/foo/dir/file.html,/app/foo/bar/dir/file.pdf, 和 /app/dir/file.java   /**/*.jsp 任何的 .jsp 文件      Ant 风格 是什么?</description>
     </item>
     
     <item>
@@ -529,7 +529,7 @@ Ant 风格匹配规则 通配符  ? 匹配任何单字符 * 匹配0或者任意�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Spring/docs/spring-test/_sidebar/</guid>
-      <description> README SpringRunner  </description>
+      <description>  README  SpringRunner  </description>
     </item>
     
     <item>
@@ -538,7 +538,7 @@ Ant 风格匹配规则 通配符  ? 匹配任何单字符 * 匹配0或者任意�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Spring/docs/spring-test/README/</guid>
-      <description>asd  官方文档  Spring Framework Testing  14. Unit Testing 15. Integration Testing 16. Further Resources    Spring Boot - Part IV. Spring Boot features - 41. Testing     </description>
+      <description>asd  官方文档  Spring Framework Testing   14. Unit Testing  15. Integration Testing  16. Further Resources    Spring Boot - Part IV. Spring Boot features - 41. Testing     </description>
     </item>
     
     <item>
@@ -585,7 +585,7 @@ http://www.iteye.com/topic/35907/ https://blog.csdn.net/aya19880214/article/deta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Spring/docs/spring-webmvc/_sidebar/</guid>
-      <description> HandlerInterceptor WebRequestInterceptor OncePerRequestFilter WebMvcConfigurerAdapter  </description>
+      <description>  HandlerInterceptor  WebRequestInterceptor  OncePerRequestFilter  WebMvcConfigurerAdapter  </description>
     </item>
     
     <item>
@@ -607,7 +607,7 @@ http://www.iteye.com/topic/35907/ https://blog.csdn.net/aya19880214/article/deta
 OncePerRequestFilter继承自GenericFilterBean，那么它自然知道怎么去获取配置文件中的属性及其值， 所以其重点不在于取值，而在于确保在接收到一个request后，每个filter只执行一次，它的子类只需要关注Filter的具体实现即doFilterInternal。
 AbstractRequestLoggingFilter是对OncePerRequestFilter的扩展，它除了遗传了其父类及祖先类的所有功能外，还在doFilterInternal中决定了在过滤之前和之后执行的事件，它的子类关注的是beforeRequest和afterRequest。
 总体来说，这三个类分别执行了Filter的某部分功能，当然，具体如何执行由它们的子类规定，若你需要实现自己的过滤器，也可以根据上文所述继承你所需要的类。
-import org.springframework.stereotype.Component; import org.springframework.web.filter.OncePerRequestFilter; import javax.servlet.FilterChain; import javax.servlet.ServletException; import javax.servlet.annotation.WebFilter; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.io.IOException; @Component @WebFilter(urlPatterns = &amp;#34;/**&amp;#34;, filterName = &amp;#34;allFilter&amp;#34;) public class MyFilter extends OncePerRequestFilter { @Override protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException { System.out.println(&amp;#34;before&amp;#34;); filterChain.doFilter(httpServletRequest, httpServletResponse); System.out.println(&amp;#34;after&amp;#34;); } } Read More  Spring MVC过滤器-超类  </description>
+import org.springframework.stereotype.Component; import org.springframework.web.filter.OncePerRequestFilter; import javax.servlet.FilterChain; import javax.servlet.ServletException; import javax.servlet.annotation.WebFilter; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.io.IOException; @Component @WebFilter(urlPatterns = &amp;#34;/**&amp;#34;, filterName = &amp;#34;allFilter&amp;#34;) public class MyFilter extends OncePerRequestFilter { @Override protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException { System.out.println(&amp;#34;before&amp;#34;); filterChain.doFilter(httpServletRequest, httpServletResponse); System.out.println(&amp;#34;after&amp;#34;); } } Read More   Spring MVC过滤器-超类  </description>
     </item>
     
     <item>

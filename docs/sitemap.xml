@@ -4,258 +4,330 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/_sidebar/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-aop/aopalliance/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-aop/core/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-aop/handlers/AopNamespaceHandler/spring-configured/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-aop/README/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/annotation-usage/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/code-usage/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-aop/usage/schema-xml-usage/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/___AnnotatedBeanDefinition/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/___BeanDefinition/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/___DefaultSingletonBeanRegistry/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/Aware/</loc>
+    <lastmod>2020-05-11T10:18:04+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactory.getBean/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactory/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanFactoryPostProcessor/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/BeanPostProcessor/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/DisposableBean/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/FactoryBean/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/InitializingBean/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/Lifecycle/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s01.BeanNameAware/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s02.BeanFactoryAware/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/lifecycle/s03.ApplicationContextAware/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-beans/StaticListableBeanFactory/</loc>
+    <lastmod>2020-05-11T10:18:04+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/__ConfigurationClassUtils/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/__ImportBeanDefinitionRegistrar/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/__ImportSelector/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/ConfigurableApplicationContext#refresh/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/CacheNamespaceHandler/noting/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/component-scan/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/load-time-weaver/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/ContextNamespaceHandler/spring-configured/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/JeeNamespaceHandler/noting/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/LangNamespaceHandler/noting/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/TaskNamespaceHandler/noting/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/cglib/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/core/__ParameterizedTypeReference/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/core/__SpringProperties/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/core/Constants/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/Resource/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourceLoader/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourcePatternResolver/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/core/SpringVersion/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/objenesis/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/util/__Base64Utils/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ClassUtils/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/util/__FileCopyUtils/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ReflectionUtils/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/util/AntPathMatcher/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-core/util/ResourceUtils/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-test/_sidebar/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-test/README/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-tx/EnableTransactionManagement/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-tx/PlatformTransactionManager/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-tx/todo/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-tx/usage-mode/code/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-webmvc/_sidebar/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-webmvc/HandlerInterceptor/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-webmvc/OncePerRequestFilter/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-webmvc/README/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-webmvc/WebMvcConfigurerAdapter/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/spring-webmvc/WebRequestInterceptor/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Spring/categories/</loc>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/docs/</loc>
+    <lastmod>2020-05-11T10:18:04+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Spring/</loc>
+    <lastmod>2020-03-02T18:15:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Spring/tags/</loc>
   </url>
   
 </urlset>

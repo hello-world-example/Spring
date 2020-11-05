@@ -4,17 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Web Request Interceptor"><meta property="og:title" content="" />
+<meta name="description" content="WebRequestInterceptor 与HandlerInterceptor接口类似，区别是WebRequestInterceptor的preHandle没有返回值。 还有就是WebRequestInterceptor是针对请求的，接口方法参数中没有response。
+import org.springframework.ui.ModelMap; import org.springframework.web.context.request.WebRequest; import org.springframework.web.context.request.WebRequestInterceptor; public class RequestInterceptor implements WebRequestInterceptor { @Override public void preHandle(WebRequest webRequest) throws Exception { } @Override public void postHandle(WebRequest webRequest, ModelMap modelMap) throws Exception { } @Override public void afterCompletion(WebRequest webRequest, Exception e) throws Exception { } } 配置生效 Bean Config import org.springframework.stereotype.Component; import org.springframework.web.servlet.config.annotation.InterceptorRegistry; import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter; @Component public class AllInterceptor extends WebMvcConfigurerAdapter { @Override public void addInterceptors(InterceptorRegistry registry) { // 拦截所有  // 排除 /login/**  registry."><meta property="og:title" content="" />
 <meta property="og:description" content="WebRequestInterceptor 与HandlerInterceptor接口类似，区别是WebRequestInterceptor的preHandle没有返回值。 还有就是WebRequestInterceptor是针对请求的，接口方法参数中没有response。
 import org.springframework.ui.ModelMap; import org.springframework.web.context.request.WebRequest; import org.springframework.web.context.request.WebRequestInterceptor; public class RequestInterceptor implements WebRequestInterceptor { @Override public void preHandle(WebRequest webRequest) throws Exception { } @Override public void postHandle(WebRequest webRequest, ModelMap modelMap) throws Exception { } @Override public void afterCompletion(WebRequest webRequest, Exception e) throws Exception { } } 配置生效 Bean Config import org.springframework.stereotype.Component; import org.springframework.web.servlet.config.annotation.InterceptorRegistry; import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter; @Component public class AllInterceptor extends WebMvcConfigurerAdapter { @Override public void addInterceptors(InterceptorRegistry registry) { // 拦截所有  // 排除 /login/**  registry." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Spring/docs/spring-webmvc/WebRequestInterceptor/" />
-
+<meta property="article:modified_time" content="2020-03-02T18:15:15+08:00" />
 <title>Web Request Interceptor | Spring</title>
 <link rel="icon" href="/Spring/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/Spring/book.min.5ffea21f70a71b9e6059006c33cc74cf184e208cb9897c6b24840c9f4e0e385e.css" integrity="sha256-X/6iH3CnG55gWQBsM8x0zxhOIIy5iXxrJIQMn04OOF4=">
+<link rel="stylesheet" href="/Spring/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
 
 
 <!--
@@ -41,51 +42,75 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
+
   <ul>
 <li>
 <p><strong>spring-core🍃</strong></p>
 <ul>
 <li><strong>springframework.core🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
-<li><a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/Constants/">Constants</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/SpringVersion/">SpringVersion</a></li>
 </ul>
 </li>
 <li><strong>springframework.core.io🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
-<li><a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
-<li><a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/Resource/">Resource</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/ResourceLoader/">ResourceLoader</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/core/io/ResourcePatternResolver/">ResourcePatternResolver</a></li>
 </ul>
 </li>
 <li><strong>springframework.util🌱</strong>
 <ul>
-<li><a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/util/AntPathMatcher/">AntPathMatcher</a></li>
 </ul>
 </li>
-<li><a href="/Spring/docs/spring-core/cglib/">cglib 🌱</a></li>
-<li><a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/cglib/">cglib 🌱</a></li>
+<li>
+  <a href="/Spring/docs/spring-core/objenesis/">objenesis 🌱</a></li>
 </ul>
 </li>
 <li>
 <p><strong>spring-beans🍃</strong></p>
 <ul>
-<li><a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
+<li>
+  <a href="/Spring/docs/spring-beans/Lifecycle/">生命周期</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactory/">BeanFactory</a>
 <ul>
-<li><a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
-<li><a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactory.getBean/">BeanFactory.getBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/StaticListableBeanFactory/">StaticListable<strong>BeanFactory</strong></a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
-<li><a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
+<li>
+  <a href="/Spring/docs/spring-beans/FactoryBean/">FactoryBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanFactoryPostProcessor/">BeanFactoryPostProcessor</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/BeanPostProcessor/">BeanPostProcessor</a>
 <ul>
-<li><a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
-<li><a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
-<li><a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/Aware/">Aware</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/InitializingBean/">InitializingBean</a></li>
+<li>
+  <a href="/Spring/docs/spring-beans/DisposableBean/">DisposableBean</a></li>
 </ul>
 </li>
 </ul>
@@ -97,9 +122,12 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><strong>ContextNamespaceHandler</strong>
 <ul>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
-<li><a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/component-scan.md">_&lt;context: component-scan/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/load-time-weaver.md">&lt;context: load-time-weaver/&gt;</a></li>
+<li>
+  <a href="spring-context/handlers/ContextNamespaceHandler/spring-configured.md">&lt;context: spring-configured/&gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -109,20 +137,26 @@ https://github.com/alex-shpak/hugo-book
 <li>
 <p><strong>spring-aop</strong></p>
 <ul>
-<li><a href="spring-aop/core.md">概念</a></li>
-<li><a href="spring-aop/aopalliance.md">aopalliance</a></li>
+<li>
+  <a href="spring-aop/core.md">概念</a></li>
+<li>
+  <a href="spring-aop/aopalliance.md">aopalliance</a></li>
 <li><strong>Spring AOP 使用方式</strong>
 <ul>
-<li><a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
-<li><a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
-<li><a href="spring-aop/usage/code-usage.md">基于编码</a></li>
+<li>
+  <a href="spring-aop/usage/annotation-usage.md"><strong>基于AspectJ注解</strong></a></li>
+<li>
+  <a href="spring-aop/usage/schema-xml-usage.md"><strong>基于 Schema</strong></a></li>
+<li>
+  <a href="spring-aop/usage/code-usage.md">基于编码</a></li>
 </ul>
 </li>
 <li><strong>Handlers</strong>
 <ul>
 <li><strong>AopNamespaceHandler</strong>
 <ul>
-<li><a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
+<li>
+  <a href="spring-aop/handlers/AopNamespaceHandler/spring-configured.md">&lt;aop: spring-configured/&gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -163,6 +197,11 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
@@ -196,12 +235,16 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#配置生效">配置生效</a>
+    <li><a href="#webrequestinterceptor">WebRequestInterceptor</a>
       <ul>
-        <li><a href="#bean-config">Bean Config</a></li>
+        <li><a href="#配置生效">配置生效</a>
+          <ul>
+            <li><a href="#bean-config">Bean Config</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
-    <li><a href="#read-more">Read More</a></li>
   </ul>
 </nav>
 
@@ -212,7 +255,8 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="webrequestinterceptor">WebRequestInterceptor</h1>
+      
+  <article class="markdown"><h1 id="webrequestinterceptor">WebRequestInterceptor</h1>
 <p>与<code>HandlerInterceptor</code>接口类似，区别是<code>WebRequestInterceptor</code>的<code>preHandle</code>没有返回值。
 还有就是<code>WebRequestInterceptor</code>是针对请求的，接口方法参数中没有<code>response</code>。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.ui.ModelMap<span style="color:#f92672">;</span>
@@ -253,16 +297,26 @@ https://github.com/alex-shpak/hugo-book
 <span style="color:#f92672">}</span>   
 </code></pre></div><h2 id="read-more">Read More</h2>
 <ul>
-<li><a href="https://www.cnblogs.com/fangjian0423/p/springMVC-interceptor.html">SpringMVC拦截器详解[附带源码分析]</a></li>
+<li>
+  <a href="https://www.cnblogs.com/fangjian0423/p/springMVC-interceptor.html">SpringMVC拦截器详解[附带源码分析]</a></li>
 </ul>
 </article>
  
+      
 
       <footer class="book-footer">
         
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/commit/b90f62a849672b1ba98d24c703b5ac3749e622ff" title='Last modified by kailbin | Mar 2, 2020' target="_blank" rel="noopener">
+      <img src="/Spring/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Mar 2, 2020</span>
+    </a>
+  </div>
 
 
 
@@ -277,14 +331,17 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+      </footer>
+
+      
   
   <div class="book-comments">
 
 </div>
   
  
-      </footer>
-      
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
@@ -292,12 +349,16 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#配置生效">配置生效</a>
+    <li><a href="#webrequestinterceptor">WebRequestInterceptor</a>
       <ul>
-        <li><a href="#bean-config">Bean Config</a></li>
+        <li><a href="#配置生效">配置生效</a>
+          <ul>
+            <li><a href="#bean-config">Bean Config</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
-    <li><a href="#read-more">Read More</a></li>
   </ul>
 </nav>
 
