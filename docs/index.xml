@@ -15,9 +15,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Spring/_sidebar/</guid>
-      <description>spring-core🍃
- springframework.core🌱   Constants  SpringVersion   springframework.core.io🌱   Resource  ResourceLoader  ResourcePatternResolver   springframework.util🌱   AntPathMatcher    cglib 🌱  objenesis 🌱    spring-beans🍃
-  生命周期  BeanFactory   BeanFactory.getBean  StaticListableBeanFactory      FactoryBean  BeanFactoryPostProcessor  BeanPostProcessor   Aware  InitializingBean  DisposableBean      spring-context</description>
+      <description>Spring-Core 🔗
+  spring-beans🍃
+  生命周期  BeanFactory   BeanFactory.getBean  StaticListableBeanFactory      FactoryBean  BeanFactoryPostProcessor  BeanPostProcessor   Aware  InitializingBean  DisposableBean      spring-context
+ Handlers  ContextNamespaceHandler   _&amp;lt;context: component-scan/&amp;gt;  &amp;lt;context: load-time-weaver/&amp;gt;  &amp;lt;context: spring-configured/&amp;gt;        spring-aop
+  概念  aopalliance Spring AOP 使用方式   基于AspectJ注解  基于 Schema  基于编码   Handlers  AopNamespaceHandler   &amp;lt;aop: spring-configured/&amp;gt;     _AopProxy  _DefaultAopProxyFactory _JdkDynamicAopProxy _CglibAopProxy &amp;amp; ObjenesisCglibAopProxy      spring-tx</description>
     </item>
     
     <item>
@@ -369,158 +371,6 @@ package org.springframework.beans.factory; import org.springframework.beans.Bean
       
       <guid>https://hello-world-example.github.io/Spring/docs/spring-context/handlers/TaskNamespaceHandler/noting/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/cglib/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/cglib/</guid>
-      <description>cglib cglib 已纳入 spring-core 模块，包 org.springframework.cglib.proxy。
-入门示例 Callback  Callback (..cglib.proxy) ：空接口  MethodInterceptor (..cglib.proxy)： InvocationHandler (..cglib.proxy)： NoOp (..cglib.proxy)：什么也不做，类似于直接调用目标对象 FixedValue (..cglib.proxy)：不调用 目标方法，而是返回一个固定的值 LazyLoader (..cglib.proxy)： Dispatcher (..cglib.proxy)： ProxyRefDispatcher (..cglib.proxy)：    Read More   CGLib动态代理的介绍及用法（单回调、多回调、不处理、固定值、懒加载）  cglib How To  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/__ParameterizedTypeReference/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/__ParameterizedTypeReference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/__SpringProperties/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/__SpringProperties/</guid>
-      <description>SpringProperties </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/Constants/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/Constants/</guid>
-      <description>Constants 该类用来获取类中的常量
-package org.springframework.core; import java.lang.reflect.Field; import java.util.*; import org.springframework.util.Assert; import org.springframework.util.ReflectionUtils; /** * @since 16.03.2003 * * 根据常量名获取值 * 根据常量名 前缀/后缀 获取 常量名/值 列表 * 等 */ public class Constants { ... public Constants(Class&amp;lt;?&amp;gt; clazz) { Assert.notNull(clazz, &amp;#34;Class must not be null&amp;#34;); this.className = clazz.getName(); Field[] fields = clazz.getFields(); for (Field field : fields) { // 字段是否由 public static final 修饰  if (ReflectionUtils.isPublicStaticFinal(field)) { String name = field.getName(); try { Object value = field.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/Resource/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/Resource/</guid>
-      <description>Resource Resource 是 Spring 对于资源文件的统一访问接口。
-package org.springframework.core.io; /** * @since 28.12.2003 * @see #getInputStream() * @see #getURL() * @see #getURI() * @see #getFile() * @see WritableResource * @see ContextResource * @see UrlResource * @see ClassPathResource * @see FileSystemResource * @see PathResource * @see ByteArrayResource * @see InputStreamResource */ public interface Resource extends InputStreamSource { /** * 判断对应的资源是否真的存在 */ boolean exists(); /** * 用于判断对应资源的内容是否可读。 * 需要注意的是当其结果为true的时候，其内容未必真的可读，但如果返回false，则其内容必定不可读 */ boolean isReadable(); /** * 用于判断当前资源是否代表一个已打开的输入流， * 如果结果为true，则表示当前资源的输入流不可多次读取，且在读取以后需要关闭，以防止内存泄露 */ boolean isOpen(); /** * 返回当前资源对应的URL * 如果当前资源不能解析为一个URL则会抛出异常。如ByteArrayResource就不能解析为一个URL */ URL getURL() throws IOException; /** * 返回当前资源对应的URI * 如果当前资源不能解析为一个URI则会抛出异常 * @since 2.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourceLoader/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourceLoader/</guid>
-      <description>ResourceLoader ResourceLoader (org.springframework.core.io) interface DefaultResourceLoader (org.springframework.core.io) class ResourcePatternResolver (org.springframework.core.io.support) interface ... ResourceLoader 是一个接口，定义了从 类路径 和 文件系统 中加载资源。 作用主要是 对各种资源路径（location）进行封装，返回 org.springframework.core.io.Resource 接口的实现，通过统一的方式进行访问
-package org.springframework.core.io; import org.springframework.util.ResourceUtils; public interface ResourceLoader { /** Pseudo URL prefix for loading from the class path: &amp;#34;classpath:&amp;#34; */ String CLASSPATH_URL_PREFIX = ResourceUtils.CLASSPATH_URL_PREFIX; Resource getResource(String location); ClassLoader getClassLoader(); } ResourceLoader 有一个默认实现 DefaultResourceLoader，大致策略是：
- 如果注册的有 ProtocolResolver 并且其返回的资源 非null，直接通过 ProtocolResolver 获取资源 如果以 / 开头，直接返回 ClassPathContextResource 如果以 classpath: 开头，如果是则去掉classpath: 前缀返回对应的 ClassPathResource 否则就把它当做一个 URL 来处理，封装成一个 UrlResource 进行返回 如果当成 URL 处理也失败的话就把对应的资源当成是一个 ClassPathContextResource 进行返回。  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourcePatternResolver/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/io/ResourcePatternResolver/</guid>
-      <description>ResourcePatternResolver ResourceLoader 提供 classpath 下单资源文件的载入，而 ResourcePatternResolver 提供了多资源文件的载入
-package org.springframework.core.io.support; import java.io.IOException; import org.springframework.core.io.Resource; import org.springframework.core.io.ResourceLoader; /** * @since 1.0.2 * @see org.springframework.core.io.Resource * @see org.springframework.core.io.ResourceLoader * @see org.springframework.context.ApplicationContext * @see org.springframework.context.ResourceLoaderAware */ public interface ResourcePatternResolver extends ResourceLoader { String CLASSPATH_ALL_URL_PREFIX = &amp;#34;classpath*:&amp;#34; // 新增方法，相比 ResourceLoader 可以加载多个资源  Resource[] getResources(String locationPattern) throws IOException; } ResourcePatternResolver 的继承关系如下：
-ResourcePatternResolver (org.springframework.core.io.support) PathMatchingResourcePatternResolver (org.springframework.core.io.support) ApplicationContext (org.springframework.context) ConfigurableApplicationContext (org.springframework.context) AbstractApplicationContext (org.springframework.context.support) ... 以 PathMatchingResourcePatternResolver 为例，getResources 方法的实现如下</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/core/SpringVersion/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/core/SpringVersion/</guid>
-      <description>SpringVersion 该类用来获取 Spring 版本
-实现如下：
-package org.springframework.core; /** * Class that exposes the Spring version. Fetches the * &amp;#34;Implementation-Version&amp;#34; manifest attribute from the jar file. * * @since 1.1 */ public class SpringVersion { public static String getVersion() { Package pkg = SpringVersion.class.getPackage(); return (pkg != null ? pkg.getImplementationVersion() : null); } } 读取的是 spring-core-x.x.x.RELEASE.jar/META-INF/MANIFEST.MF 文件中的 Implementation-Version 内容
-Manifest-Version: 1.0 Implementation-Title: spring-core Implementation-Version: 4.3.10.RELEASE Created-By: 1.8.0_121 (Oracle Corporation) Read More  JDK6 Doc： java.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/objenesis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/objenesis/</guid>
-      <description>Objenesis Objenesis 是一个小型Java库，作用只有一个：实例化一个特定类的对象。
-Java 已经支持使用 Class.newInstance() 动态实例化类的实例。但是类必须拥有一个合适的构造器。有很多场景下不能使用这种方式实例化类，比如：
- 构造器需要参数 构造器有副作用 构造器会抛异常  因此，在类库中经常会有类必须拥有一个默认构造器的限制。Objenesis 通过绕开对象实例构造器来克服这个限制。
-实例化一个对象而不调用构造器是一个特殊的行为，然而在一些特定的场合是有用的：
- 序列化，远程调用和持久化 -对象需要实例化并存储为到一个特殊的状态，而没有调用代码 代理，AOP库和Mock对象 -类可以被子类继承而子类不用担心父类的构造器 容器框架 -对象可以以非标准的方式被动态实例化  Spring 已经将 Objenesis 纳入到了 spring-core 模块中，所以使用的时候不同单独引用。 Spring 在 采用 cglib 代理的时候，会默认先采用 Objenesis 实例化代理类( @see: ObjenesisCglibAopProxy)
-示例 Hello 类 public class Hello { private static String prefix = &amp;#34;Hello &amp;#34;; { System.out.println(&amp;#34;do &amp;lt;init&amp;gt; Hello&amp;#34;); } public Hello() { System.out.println(&amp;#34;do init Hello&amp;#34;); } public void say(String something) { System.out.println(prefix + something); System.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__Base64Utils/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__Base64Utils/</guid>
-      <description>Base64Utils </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ClassUtils/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ClassUtils/</guid>
-      <description>ClassUtils </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__FileCopyUtils/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__FileCopyUtils/</guid>
-      <description>FileCopyUtils </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ReflectionUtils/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/__ReflectionUtils/</guid>
-      <description>ReflectionUtils </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/AntPathMatcher/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/AntPathMatcher/</guid>
-      <description>AntPathMatcher 整个 Spring框架 的路径解析都是按照Ant的风格来的，如： package 匹配，Spring MVC 的路径匹配
-Ant 风格匹配规则 通配符  ? 匹配任何单字符 * 匹配0或者任意数量的字符 ** 匹配0或者更多的目录  最长匹配原则 URL请求/app/dir/file.jsp，现在存在两个路径匹配模式/**/*.jsp和/app/dir/*.jsp，那么会根据模式 /app/dir/*.jsp 来匹配
-示例    URL路径 说明     /app/*.x 所有在app路径下的.x文件   /app/p?ttern /app/pattern 和 /app/pXttern,但是不包括 /app/pttern   /**/example /app/example, /app/foo/example, 和 /example   /app/**/dir/file.* /app/dir/file.jsp, /app/foo/dir/file.html,/app/foo/bar/dir/file.pdf, 和 /app/dir/file.java   /**/*.jsp 任何的 .jsp 文件      Ant 风格 是什么?</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Spring/docs/spring-core/util/ResourceUtils/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Spring/docs/spring-core/util/ResourceUtils/</guid>
-      <description>ResourceUtils package org.springframework.util; import java.io.File; import java.io.FileNotFoundException; import java.net.MalformedURLException; import java.net.URI; import java.net.URISyntaxException; import java.net.URL; import java.net.URLConnection; /** * @since 1.1.5 * @see org.springframework.core.io.Resource * @see org.springframework.core.io.ClassPathResource * @see org.springframework.core.io.FileSystemResource * @see org.springframework.core.io.UrlResource * @see org.springframework.core.io.ResourceLoader */ public abstract class ResourceUtils { public static final String CLASSPATH_URL_PREFIX = &amp;#34;classpath:&amp;#34;; public static final String FILE_URL_PREFIX = &amp;#34;file:&amp;#34;; public static final String JAR_URL_PREFIX = &amp;#34;jar:&amp;#34;; public static final String WAR_URL_PREFIX = &amp;#34;war:&amp;#34;; .</description>
     </item>
     
     <item>

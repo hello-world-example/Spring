@@ -3,22 +3,8 @@ headless: true
 bookMenuLevels: 1
 ---
 
+- **[Spring-Core 🔗](/Spring-Core)**
 
-
-- **spring-core🍃**
-  
-  * **springframework.core🌱**
-      * [Constants]({{< relref "/docs/spring-core/core/Constants.md" >}})
-      * [SpringVersion]({{< relref "/docs/spring-core/core/SpringVersion.md" >}})
-  * **springframework.core.io🌱**
-      * [Resource]({{< relref "/docs/spring-core/core/io/Resource.md" >}})
-      * [ResourceLoader]({{< relref "/docs/spring-core/core/io/ResourceLoader.md" >}})
-      * [ResourcePatternResolver]({{< relref "/docs/spring-core/core/io/ResourcePatternResolver.md" >}})
-  * **springframework.util🌱**
-      * [AntPathMatcher]({{< relref "/docs/spring-core/util/AntPathMatcher.md" >}})
-  * [cglib 🌱]({{< relref "/docs/spring-core/cglib.md" >}}) 
-  * [objenesis 🌱]({{< relref "/docs/spring-core/objenesis.md" >}})
-  
 - **spring-beans🍃**
 
   - [生命周期]({{< relref "/docs/spring-beans/Lifecycle.md" >}})
@@ -58,9 +44,9 @@ bookMenuLevels: 1
 
 - **spring-tx**
   
-  - PlatformTransactionManager](spring-tx/PlatformTransactionManager.md)
+  - [PlatformTransactionManager](spring-tx/PlatformTransactionManager.md)
   - 使用方式
-      - 编码](spring-tx/usage-mode/code.md)
+      - [编码](spring-tx/usage-mode/code.md)
       - 注解
       - AOP
   - TransactionInterceptor

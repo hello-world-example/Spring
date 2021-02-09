@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>demo-spring-core</module>
         <module>demo-spring-context</module>
         <module>demo-spring-jdbc</module>
         <module>demo-spring-retry</module>
