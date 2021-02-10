@@ -10,12 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>demo-spring-context</module>
-        <module>demo-spring-jdbc</module>
         <module>demo-spring-retry</module>
         <module>demo-spring-integration</module>
         <module>demo-spring-webflux</module>
-        <module>demo-spring-beans</module>
+        <!-- 图 -->
         <module>draw-spring</module>
     </modules>
 
