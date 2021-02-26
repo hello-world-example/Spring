@@ -13,8 +13,6 @@
         <module>demo-spring-retry</module>
         <module>demo-spring-integration</module>
         <module>demo-spring-webflux</module>
-        <!-- 图 -->
-        <module>draw-spring</module>
     </modules>
 
 
