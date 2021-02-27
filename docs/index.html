@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="  官方资源
   Spring Framework Documentation    中文资源
-  Spring Framework 4.3.21.RELEASE  Spring Framework 5.1.3.RELEASE    "><meta property="og:title" content="Spring" />
+  Spring Framework 4.3.21.RELEASE  Spring Framework 5.1.3.RELEASE    Draw.io Spring-Core   Spring-Environment.drawio  Spring-Beans   Spring-BeanDefinition.drawio  Spring-AOP   Spring-AOP.drawio  Spring-JDBC   Spring-TX.drawio  Spring-JDBC.drawio  "><meta property="og:title" content="Spring" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://hello-world-example.github.io/Spring/" />
@@ -107,7 +107,22 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#drawio">Draw.io</a>
+          <ul>
+            <li><a href="#spring-core">Spring-Core</a></li>
+            <li><a href="#spring-beans">Spring-Beans</a></li>
+            <li><a href="#spring-aop">Spring-AOP</a></li>
+            <li><a href="#spring-jdbc">Spring-JDBC</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -135,6 +150,29 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 </ul>
+<h2 id="drawio">Draw.io</h2>
+<h3 id="spring-core">Spring-Core</h3>
+<ul>
+<li>
+  <a href="https://app.diagrams.net/?#Uhttps://raw.githubusercontent.com/hello-world-example/Spring-Core/master/demo-spring-draw/Spring-Environment.drawio">Spring-Environment.drawio</a></li>
+</ul>
+<h3 id="spring-beans">Spring-Beans</h3>
+<ul>
+<li>
+  <a href="https://app.diagrams.net/?#Uhttps://raw.githubusercontent.com/hello-world-example/Spring-Beans/master/demo-spring-draw/Spring-BeanDefinition.drawio">Spring-BeanDefinition.drawio</a></li>
+</ul>
+<h3 id="spring-aop">Spring-AOP</h3>
+<ul>
+<li>
+  <a href="https://app.diagrams.net/?#Uhttps://raw.githubusercontent.com/hello-world-example/Spring-AOP/master/demo-spring-draw/Spring-AOP.drawio">Spring-AOP.drawio</a></li>
+</ul>
+<h3 id="spring-jdbc">Spring-JDBC</h3>
+<ul>
+<li>
+  <a href="https://app.diagrams.net/?#Uhttps://raw.githubusercontent.com/hello-world-example/Spring-JDBC/master/demo-spring-draw/Spring-TX.drawio">Spring-TX.drawio</a></li>
+<li>
+  <a href="https://app.diagrams.net/?#Uhttps://raw.githubusercontent.com/hello-world-example/Spring-JDBC/master/demo-spring-draw/Spring-JDBC.drawio">Spring-JDBC.drawio</a></li>
+</ul>
 </article>
  
       
@@ -147,9 +185,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/commit/b90f62a849672b1ba98d24c703b5ac3749e622ff" title='Last modified by kailbin | Mar 2, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/commit/7625882bc8c79680200105a963ac1b9c074bc26d" title='Last modified by kailbin | Feb 26, 2021' target="_blank" rel="noopener">
       <img src="/Spring/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Mar 2, 2020</span>
+      <span>Feb 26, 2021</span>
     </a>
   </div>
 
@@ -165,7 +203,18 @@ https://github.com/alex-shpak/hugo-book
 </div>
 
  
-        
+        <script>
+var images = document.getElementsByTagName("img")
+console.info(images.length)
+for(var i=0; i<images.length; i++){
+  var image = images[i]
+  var src = image.getAttribute("src");
+  if(src.startsWith("-images")){
+    image.setAttribute("src", "../" + src)
+  }
+}
+</script>
+
       </footer>
 
       
@@ -182,7 +231,22 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#drawio">Draw.io</a>
+          <ul>
+            <li><a href="#spring-core">Spring-Core</a></li>
+            <li><a href="#spring-beans">Spring-Beans</a></li>
+            <li><a href="#spring-aop">Spring-AOP</a></li>
+            <li><a href="#spring-jdbc">Spring-JDBC</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

@@ -8,7 +8,7 @@
 <meta property="og:description" content="  Spring-Core 🔗  Spring-Beans 🔗  Spring-Context 🔗  Spring-AOP 🔗  Spring-Jdbc 🔗  Spring-WebMVC 🔗  Spring-Test 🔗  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Spring/_sidebar/" />
-<meta property="article:modified_time" content="2021-02-09T13:56:17+08:00" />
+<meta property="article:modified_time" content="2021-02-10T10:42:20+08:00" />
 <title>Sidebar | Spring</title>
 <link rel="icon" href="/Spring/favicon.png" type="image/x-icon">
 
@@ -141,9 +141,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/commit/30ecb049931357652a58ac8f90915be79e1dd722" title='Last modified by kailbin | Feb 9, 2021' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/hello-world-example/Spring/commit/87709ce8730dffa6dd8ba5e48b72a7d726506623" title='Last modified by kailbin | Feb 10, 2021' target="_blank" rel="noopener">
       <img src="/Spring/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 9, 2021</span>
+      <span>Feb 10, 2021</span>
     </a>
   </div>
 
@@ -159,7 +159,18 @@ https://github.com/alex-shpak/hugo-book
 </div>
 
  
-        
+        <script>
+var images = document.getElementsByTagName("img")
+console.info(images.length)
+for(var i=0; i<images.length; i++){
+  var image = images[i]
+  var src = image.getAttribute("src");
+  if(src.startsWith("-images")){
+    image.setAttribute("src", "../" + src)
+  }
+}
+</script>
+
       </footer>
 
       
